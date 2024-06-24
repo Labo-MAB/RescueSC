@@ -1,0 +1,895 @@
+Cell types,Cluster annotations,Organ of origin
+Oligodendrocyte Lineage cells_Mal high(Arc-Me),Oligodendrocyte,Brain
+Ependymocytes(Arc-Me),Ependymocyte,Brain
+Mural cells(Arc-Me),Mural_cell,Brain
+Pars Tuberalis cells_Cyp2f2 high(Arc-Me),Pars_tuberalis_cell,Brain
+Tanycyte_Scn7a high(Arc-Me),Tanycyte,Brain
+Oligodendrocyte precursor cells(Arc-Me),Oligodendrocyte_precursor,Brain
+POMC neurons(Arc-Me),Neuron,Brain
+Kiss1/Tac2 neuron(Arc-Me),Neuron,Brain
+Rgs16 neurons(Arc-Me),Neuron,Brain
+Slc17a6/Rgs16 neurons(Arc-Me),Neuron,Brain
+Ghrh/Th neurons(Arc-Me),Neuron,Brain
+Pars Tuberalis cells_Cga high(Arc-Me),Pars_tuberalis_cell,Brain
+SST neurons(Arc-Me),Neuron,Brain
+Slc17a6/Bdnf neuron(Arc-Me),Neuron,Brain
+PVMMicro(Arc-Me),Microglia,Brain
+Astrocyte(Arc-Me),Astrocyte,Brain
+Tanycyte_Crym high(Arc-Me),Tanycyte,Brain
+Vascular and Leptomeningeal cells(Arc-Me),Vascular_Leptomeningeal,Brain
+Oligodendrocyte Lineage cells_Enpp6 high(Arc-Me),Oligodendrocyte,Brain
+AgRP neurons(Arc-Me),Neuron,Brain
+Endothelial cells(Arc-Me),Endothelial_cell,Brain
+Stromal cell_Dpt high(Bladder),Stromal_cell,Bladder
+Epithelial cell_Gm23935 high(Bladder),Epithelial_cell,Bladder
+Macrophage_Pf4 high(Bladder),Immune_cell,Bladder
+Dendritic cell_Cd74 high(Bladder),Immune_cell,Bladder
+Dendritic cell_Lyz2 high(Bladder),Immune_cell,Bladder
+Endothelial cell_Ly6c1 high(Bladder),Endothelial_cell,Bladder
+NK cell(Bladder),Immune_cell,Bladder
+Vascular smooth muscle progenitor cell(Bladder),Smooth_muscle_progenitor,Bladder
+Mesenchymal stromal cell(Bladder),Mesenchymal_stromal_cell,Bladder
+Basal epithelial cell(Bladder),Epithelial_cell,Bladder
+Urothelium(Bladder),Urothelial_cell,Bladder
+Stromal cell_Car3 high(Bladder),Stromal_cell,Bladder
+Epithelial cell_Upk3a high(Bladder),Epithelial_cell,Bladder
+Smooth muscle cell(Bladder),Smooth_muscle_cell,Bladder
+Vascular endothelial cell(Bladder),Endothelial_cell,Bladder
+Umbrella cell(Bladder),Umbrella_cell,Bladder
+Neutrophil_Cebpe high(Bone-Marrow),Immune_cell,Bone-Marrow
+Neutrophil_Fcnb high(Bone-Marrow),Immune_cell,Bone-Marrow
+B cell_Igkc high(Bone-Marrow),Immune_cell,Bone-Marrow
+Macrophage_S100a4 high(Bone-Marrow),Immune_cell,Bone-Marrow
+T cell_Ms4a4b high(Bone-Marrow),Immune_cell,Bone-Marrow
+Dendritic cell_Siglech high(Bone-Marrow),Immune_cell,Bone-Marrow
+Mast cell(Bone-Marrow),Mast_cell,Bone-Marrow
+Dendritic cell_H2-Eb1 high(Bone-Marrow),Immune_cell,Bone-Marrow
+Monocyte_Mif high(Bone-Marrow),Immune_cell,Bone-Marrow
+Neutrophil_Mmp8 high(Bone-Marrow),Immune_cell,Bone-Marrow
+Neutrophil progenitor(Bone-Marrow),Neutrophil_progenitor,Bone-Marrow
+Monocyte_Prtn3 high(Bone-Marrow),Immune_cell,Bone-Marrow
+Macrophage_Ms4a6c high(Bone-Marrow),Immune_cell,Bone-Marrow
+Neutrophil_Ngp high(Bone-Marrow),Immune_cell,Bone-Marrow
+Pre-pro B cell(Bone-Marrow),Pre_pro_B_cell,Bone-Marrow
+Hematopoietic stem progenitor cell(Bone-Marrow),Hematopoetic_stem_progenitor_cell,Bone-Marrow
+Erythroblast(Bone-Marrow),Erythroblast,Bone-Marrow
+Neutrophil_Lcn2 high(Bone-Marrow_c-kit),Immune_cell,Bone-Marrow
+Erythrocyte progenitor_Car1 high(Bone-Marrow_c-kit),Erythrocyte_progenitor,Bone-Marrow
+Megakaryocyte progenitor cell(Bone-Marrow_c-kit),Megakaryocyte_progenitor,Bone-Marrow
+Basophil(Bone-Marrow_c-kit),Immune_cell,Bone-Marrow
+Pre-B cell(Bone-Marrow_c-kit),Pre_B_cell,Bone-Marrow
+Neutrophil_Retnlg high(Bone-Marrow_c-kit),Immune_cell,Bone-Marrow
+M1 macrophage_Cd74 high(Bone-Marrow_c-kit),Immune_cell,Bone-Marrow
+Erythrocyte progenitor_Hba-a1 high(Bone-Marrow_c-kit),Erythrocyte_progenitor,Bone-Marrow
+Bone marrow macrophage(Bone-Marrow_c-kit),Immune_cell,Bone-Marrow
+Eosinophil progenitor cell(Bone-Marrow_c-kit),Eosinophil_progenitor,Bone-Marrow
+M1 macrophage_S100a4 high(Bone-Marrow_c-kit),Immune_cell,Bone-Marrow
+Neutrophil_Ighg1 high(Bone-Marrow_c-kit),Immune_cell,Bone-Marrow
+Monocyte progenitor cell_Prtn3 high(Bone-Marrow_c-kit),Monocyte_progenitor,Bone-Marrow
+Neutrophil_Ngp high(Bone-Marrow_c-kit),Immune_cell,Bone-Marrow
+Monocyte progenitor(Bone-Marrow_c-kit),Monocyte_progenitor,Bone-Marrow
+Neutrophil_Fcnb high(Bone-Marrow_c-kit),Immune_cell,Bone-Marrow
+Monocyte progenitor cell_Ctsg high(Bone-Marrow_c-kit),Monocyte_progenitor,Bone-Marrow
+Neutrophil_Ltf high(Bone-Marrow_c-kit),Immune_cell,Bone-Marrow
+Multipotent progenitor_Ctla2a high(Bone-Marrow_c-kit),Multipotent_progenitor,Bone-Marrow
+Proerythrocytes(Bone_Marrow_Mesenchyme),Proerythrocyte,Bone-Marrow
+Stromal cell_Cnmd high(Bone_Marrow_Mesenchyme),Stromal_cell,Bone-Marrow
+Endothelial cells_Ly6c1 high(Bone_Marrow_Mesenchyme),Endothelial_cell,Bone-Marrow
+Eosinophils(Bone_Marrow_Mesenchyme),Immune_cell,Bone-Marrow
+Endothelial cells(Bone_Marrow_Mesenchyme),Endothelial_cell,Bone-Marrow
+MSC(Bone_Marrow_Mesenchyme),Mesenchymal_cell,Bone-Marrow
+CXCL12-abundant reticular cell(Bone_Marrow_Mesenchyme),Reticular_cell,Bone-Marrow
+Stromal cell_Col10a1_high(Bone_Marrow_Mesenchyme),Stromal_cell,Bone-Marrow
+Myoblast(Bone_Marrow_Mesenchyme),Myoblast,Bone-Marrow
+Megakaryocyte(Bone_Marrow_Mesenchyme),Megakaryocyte,Bone-Marrow
+Granulocyte monocyte progenitors(Bone_Marrow_Mesenchyme),Monocyte_progenitor,Bone-Marrow
+Stromal cell_Col1a2 high(Bone_Marrow_Mesenchyme),Stromal_cell,Bone-Marrow
+Erythrocytes(Bone_Marrow_Mesenchyme),Erythrocyte,Bone-Marrow
+Erythroblast(Bone_Marrow_Mesenchyme),Erythroblast,Bone-Marrow
+Osteoblasts(Bone_Marrow_Mesenchyme),Osteoblast,Bone-Marrow
+Neutrophil (Bone_Marrow_Mesenchyme),Immune_cell,Bone-Marrow
+Pre-B cell(Bone_Marrow_Mesenchyme),Pre_B_cell,Bone-Marrow
+Fibroblasts(Bone_Marrow_Mesenchyme),Fibroblast,Bone-Marrow
+Basophils(Bone_Marrow_Mesenchyme),Immune_cell,Bone-Marrow
+Myelinating oligodendrocyte(Brain),Oligodendrocyte,Brain
+Pan-GABAergic(Brain),Neuron,Brain
+Astrocyte_Pla2g7 high(Brain),Astrocyte,Brain
+Schwann cell(Brain),Schwann_cell,Brain
+Granulocyte_Hba-a1 high(Brain),Granulocyte,Brain
+Hypothalamic ependymal cell(Brain),Ependymocyte,Brain
+Granulocyte_Ngp high(Brain),Granulocyte,Brain
+Microglia(Brain),Microglia,Brain
+Astrocyte_Mfe8 high(Brain),Astrocyte,Brain
+Macrophage_Klf2 high(Brain),Immune_cell,Brain
+Astrocyte_Atp1b2 high(Brain),Astrocyte,Brain
+Oligodendrocyte precursor cell(Brain),Oligodendrocyte_precursor,Brain
+Neuron(Brain),Neuron,Brain
+Macrophage_Lyz2 high(Brain),Immune_cell,Brain
+Astroglial cell(Bergman glia)(Brain),Astroglial_cell,Brain
+Macrophage/Microglia(E18-Brain),Microglia,Brain
+Ependymal cells (E18-Brain),Ependymocyte,Brain
+GABAergic neuron_Nrxn3 high(E18-Brain),Neuron,Brain
+Cortical neurons (E18-Brain),Neuron,Brain
+GABA-Interneurons(E18-Brain),Neuron,Brain
+Erythrocyte(E18-Brain),Erythrocyte,Brain
+Dopaminergic amacrine neuron(E18-Brain),Neuron,Brain
+Immature neuron(E18-Brain),Neuron,Brain
+Glutamatergic neurons (E18-Brain),Neuron,Brain
+Hypothalamus neuron(E18-Brain),Neuron,Brain
+Stromal cell(E18-Brain),Stromal_cell,Brain
+Astrocytes_Aldoc high(E18-Brain),Astrocyte,Brain
+Neuron_cellcytle high(E18-Brain),Neuron,Brain
+Oligodendrocyte precursor cells(E18-Brain),Oligodendrocyte_precursor,Brain
+Radial glia cell_Neurog2 high(E18-Brain),Radial_glia_cell,Brain
+Radial glia cell_Gdf10 high(E18-Brain),Radial_glia_cell,Brain
+Astrocytes_Ccnb1 high(E18-Brain),Astrocyte,Brain
+Radial glia cell_Id3 high(E18-Brain),Radial_glia_cell,Brain
+Neuron_Fam19a2 high (E18-Brain),Neuron,Brain
+Endothelial cell(E18-Brain),Endothelial_cell,Brain
+Cajal-Retzius neuron cells(E18-Brain),Neuron,Brain
+GABAergic neuron_Lhx6 high(E18-Brain),Neuron,Brain
+GABAergic neuron_Htra3 high(E18-Brain),Neuron,Brain
+Stromal cell_Cxcl12 high(Embryonic-Mesenchyme),Stromal_cell,Embryonic-mesenchyme
+Ganglion cell_Mapt high(Embryonic-Mesenchyme),Ganglion_cell,Embryonic-mesenchyme
+Stromal Cell_fabp7 high(Embryonic-Mesenchyme),Stromal_cell,Embryonic-mesenchyme
+Neuron_Isl1 high(Embryonic-Mesenchyme),Neuron,Embryonic-mesenchyme
+Neuron_Npy high(Embryonic-Mesenchyme),Neuron,Embryonic-mesenchyme
+Skeletal Muscle(Embryonic-Mesenchyme),Skeletal_muscle_cell,Embryonic-mesenchyme
+Dendritic Cell(Embryonic-Mesenchyme),Immune_cell,Embryonic-mesenchyme
+Ganglion cell_Cartpt high(Embryonic-Mesenchyme),Ganglion_cell,Embryonic-mesenchyme
+Lymphoid progenitor cell(Embryonic-Mesenchyme),Lymphoid_progenitor_cell,Embryonic-mesenchyme
+Stromal Cell Cldn11 high(Embryonic-Mesenchyme),Stromal_cell,Embryonic-mesenchyme
+Neuronal Progenitors(Embryonic-Mesenchyme),Neuronal_progenitor,Embryonic-mesenchyme
+Macrophage(Embryonic-Mesenchyme),Immune_cell,Embryonic-mesenchyme
+Ganglion cell_Gal high(Embryonic-Mesenchyme),Ganglion_cell,Embryonic-mesenchyme
+Erythroblast_Mt2 high(Embryonic-Mesenchyme),Erythroblast,Embryonic-mesenchyme
+Reproductive tissues(Embryonic-Mesenchyme),Reproductive_cell,Embryonic-mesenchyme
+Endothelial Cell(Embryonic-Mesenchyme),Endothelial_cell,Embryonic-mesenchyme
+Neutrophil(Embryonic-Mesenchyme),Immune_cell,Embryonic-mesenchyme
+Progenitor cell_Ptprcap high(Embryonic-Mesenchyme),Progenitor_cell,Embryonic-mesenchyme
+Muscle(Embryonic-Mesenchyme),Muscle_cell,Embryonic-mesenchyme
+Neuron_Igfbpl1 high(Embryonic-Mesenchyme),Neuron,Embryonic-mesenchyme
+Stromal Cell_Agtr2 high(Embryonic-Mesenchyme),Stromal_cell,Embryonic-mesenchyme
+Erythroid Cell(Embryonic-Mesenchyme),Erythroid_cell,Embryonic-mesenchyme
+Stromal Cell_Cxcl14 high(Embryonic-Mesenchyme),Stromal_cell,Embryonic-mesenchyme
+Erythroblast_Hbb-bs high(Embryonic-Mesenchyme),Erythroblast,Embryonic-mesenchyme
+Stromal Cell_Cnmd high(Embryonic-Mesenchyme),Stromal_cell,Embryonic-mesenchyme
+ES_Actb_high(Embryonic-Stem-Cell),Embryonic_stem_cell,Unknown
+ES_Rps28_high(Embryonic-Stem-Cell),Embryonic_stem_cell,Unknown
+ES_Nedd4_high(Embryonic-Stem-Cell),Embryonic_stem_cell,Unknown
+ES_2C_like(Embryonic-Stem-Cell),Embryonic_stem_cell,Unknown
+Primordial germ cell(Female_Fetal_Gonad),Primordial_germ_cell,Female-fetal-gonad
+Neutrophil_S100a9 high(Female_Fetal_Gonad),Immune_cell,Female-fetal-gonad
+Epithelial cell_S100a6 high(Female_Fetal_Gonad),Epithelial_cell,Female-fetal-gonad
+Macrophage_Apoe high(Female_Fetal_Gonad),Immune_cell,Female-fetal-gonad
+Myeloid progenitor(Female_Fetal_Gonad),Myeloid_progenitor,Female-fetal-gonad
+Female fetal gonad cell_Kctd14 high(Female_Fetal_Gonad),Female_fetal_gonad_cell,Female-fetal-gonad
+Pluripotent stem cell(Female_Fetal_Gonad),Pluripotent_stem_cell,Female-fetal-gonad
+Erythroblast_Klf1 high(Female_Fetal_Gonad),Erythroblast,Female-fetal-gonad
+Erythroblast_Hbb-bs high(Female_Fetal_Gonad),Erythroblast,Female-fetal-gonad
+Stromal cell(Female_Fetal_Gonad),Stromal_cell,Female-fetal-gonad
+Epithelial cell_Upk3b high(Female_Fetal_Gonad),Epithelial_cell,Female-fetal-gonad
+Erythroblast(Female_Fetal_Gonad),Erythroblast,Female-fetal-gonad
+Mast cell(Female_Fetal_Gonad),Mast_cell,Female-fetal-gonad
+Schwann cell(Fetal_Brain),Schwann_cell,Fetal-brain
+Hippocampus neurons_Asic4 high(Fetal_Brain),Neuron,Fetal-brain
+Postmitotic neurons_Lhx9 high(Fetal_Brain),Neuron,Fetal-brain
+Erythroblast_Hbb-bh1 high(Fetal_Brain),Erythroblast,Fetal-brain
+Stromal cell(Fetal_Brain),Stromal_cell,Fetal-brain
+Erythrocyte_Hbb-bt high(Fetal_Brain),Erythrocyte,Fetal-brain
+Microglia(Fetal_Brain),Microglia,Fetal-brain
+Purkinje cell(Fetal_Brain),Purkinje_cell,Fetal-brain
+Ependymal cell(Fetal_Brain),Ependymocyte,Fetal-brain
+Macrophage(Fetal_Brain),Immune_cell,Fetal-brain
+Granule neurons(Fetal_Brain),Neuron,Fetal-brain
+Pyramidal neuron cell(Fetal_Brain),Neuron,Fetal-brain
+Radial glia_Fabp7 high(Fetal_Brain),Radial_glia_cell,Fetal-brain
+Neural progenitor cell(Fetal_Brain),Neural_progenitor,Fetal-brain
+Neuron_tuba1c high(Fetal_Brain),Neuron,Fetal-brain
+Radial glia_Vim high(Fetal_Brain),Radial_glia_cell,Fetal-brain
+Neuron_Kpna2 high(Fetal_Brain),Neuron,Fetal-brain
+Dopaminergic neurons (Fetal_Brain),Neuron,Fetal-brain
+Stromal cell_Adamdec1 high(Fetal_Intestine),Stromal_cell,Fetal-intestine
+Erythroblast_Hbb-bs high(Fetal_Intestine),Erythroblast,Fetal-intestine
+Stromal cell_Upk3b high(Fetal_Intestine),Stromal_cell,Fetal-intestine
+Epithelial cell_Bex1 high(Fetal_Intestine),Epithelial_cell,Fetal-intestine
+Enterocyte progenitor_late_Ccnb1 high(Fetal_Intestine),Enterocyte_progenitor,Fetal-intestine
+Neuronal Cells_Rtn1 high(Fetal_Intestine),Neuron,Fetal-intestine
+Erythroblast_Hbb-y high(Fetal_Intestine),Erythroblast,Fetal-intestine
+T cell(Fetal_Intestine),Immune_cell,Fetal-intestine
+Acinar cell(Fetal_Intestine),Acinar_cell,Fetal-intestine
+Erythroblast_Car2 high(Fetal_Intestine),Erythroblast,Fetal-intestine
+Endothelial cell(Fetal_Intestine),Endothelial_cell,Fetal-intestine
+Enterocyte progenitor(Fetal_Intestine),Enterocyte_progenitor,Fetal-intestine
+Enteroendocrine(Fetal_Intestine),Enteroendocrine_cell,Fetal-intestine
+Enterocyte progenitor_late_Ube2c high(Fetal_Intestine),Enterocyte_progenitor,Fetal-intestine
+Neuronal cell_Fabp7 high(Fetal_Intestine),Neuron,Fetal-intestine
+Stromal cell_Stmn2 high (Fetal_Intestine),Stromal_cell,Fetal-intestine
+Enteric muscle cell(Fetal_Intestine),Enteric_muscle_cell,Fetal-intestine
+Epithelial cell_Lgals2 high(Fetal_Intestine),Epithelial_cell,Fetal-intestine
+Macrophage_Lyz2 high(Fetal_Intestine),Immune_cell,Fetal-intestine
+Macrophage_Pf4 high(Fetal_Intestine),Immune_cell,Fetal-intestine
+Metanephric mesenchyme(Fetal_Kidney),Mesenchymal_cell,Fetal-kidney
+Proximal renal tubule(Fetal_Kidney),Proximal_renal_tubule_cell,Fetal-kidney
+Proximal tubule cell(Fetal_Kidney),Proximal_renal_tubule_cell,Fetal-kidney
+Erythroblast(Fetal_Kidney),Erythroblast,Fetal-kidney
+Macrophage_Apoe high(Fetal_Kidney),Immune_cell,Fetal-kidney
+Stromal cell_Dlk1 high(Fetal_Kidney),Stromal_cell,Fetal-kidney
+Myoblast(Fetal_Kidney),Myoblast,Fetal-kidney
+Glomerular endothelial cell_Egfl7 high(Fetal_Kidney),Endothelial_cell,Fetal-kidney
+Principal cells of cortical collecting duct(Fetal_Kidney),Cortical_collecting_duct_cell,Fetal-kidney
+Macrophage_Lyz2 high(Fetal_Kidney),Immune_cell,Fetal-kidney
+Glomerular podocytes cell(Fetal_Kidney),Glomerular_podocyte,Fetal-kidney
+Adipocyte(Fetal_Kidney),Adipocyte,Fetal-kidney
+Glomerular epithelial cell_Aldh1a2 high(Fetal_Kidney),Epithelial_cell,Fetal-kidney
+Epithelial cell(Fetal_Kidney),Epithelial_cell,Fetal-kidney
+Stromal cell_Mgp high(Fetal_Kidney),Stromal_cell,Fetal-kidney
+Distal convoluted tubule epithelial cell(Fetal_Kidney),Epithelial_cell,Fetal-kidney
+Cell in cell cycle(Fetal_Kidney),Cell_in_cell_cycle,Fetal-kidney
+Glomerular endothelial cell(Fetal_Kidney),Endothelial_cell,Fetal-kidney
+Stromal cell_Penk high(Fetal_Kidney),Stromal_cell,Fetal-kidney
+Pro-Erythroblast(Fetal-liver),Pro_erythroblast,Fetal-liver
+Pre-B cell(Fetal-liver),Pre_B_cell,Fetal-liver
+Megakaryocyte(Fetal-liver),Megakaryocyte,Fetal-liver
+Neutrophil_Elane high(Fetal-liver),Immune_cell,Fetal-liver
+Stem and progenitor cell(Fetal-liver),Stem_cell,Fetal-liver
+Dendritic cell(Fetal-liver),Immune_cell,Fetal-liver
+Erythroblast_Hba-a2 high(Fetal-liver),Erythroblast,Fetal-liver
+Macrophage(Fetal-liver),Immune_cell,Fetal-liver
+Neutrophil_Ngp high(Fetal-liver),Immune_cell,Fetal-liver
+Hepatocyte_Afp high(Fetal-liver),Hepatocyte,Fetal-liver
+Mast cell_Mcpt8 high(Fetal-liver),Mast_cell,Fetal-liver
+Stromal cell_Ankfy1 high(Fetal_Lung),Stromal_cell,Fetal-lung
+Erythroblast_Mt2&Mt1 high(Fetal_Lung),Erythroblast,Fetal-lung
+Macrophage_Pf4high(Fetal_Lung),Immune_cell,Fetal-lung
+Early Neutrophil_Gm5483 high(Fetal_Lung),Immune_cell,Fetal-lung
+Epithelial cell_Aldh1a2_high(Fetal_Lung),Epithelial_cell,Fetal-lung
+Stromal cell_Ptn high(Fetal_Lung),Stromal_cell,Fetal-lung
+Epithelial cell_Sftpc high(Fetal_Lung),Epithelial_cell,Fetal-lung
+Smooth muscle cell(Fetal_Lung),Smooth_muscle_cell,Fetal-lung
+Erythroblast_Hbb-bs high(Fetal_Lung),Erythroblast,Fetal-lung
+Erythroblast_Mt2 high(Fetal_Lung),Erythroblast,Fetal-lung
+Erythroblast_Hba-x high(Fetal_Lung),Erythroblast,Fetal-lung
+Alveolar Macrophage(Fetal_Lung),Immune_cell,Fetal-lung
+Early Neutrophil_S100a8 high(Fetal_Lung),Immune_cell,Fetal-lung
+Stromal cell_Dcn high(Fetal_Stomache),Stromal_cell,Fetal-stomach
+Stomach cell_Kazald1 high(Fetal_Stomache),Stomach_cell,Fetal-stomach
+Macrophage(Fetal_Stomache),Immune_cell,Fetal-stomach
+Acinar cell_Ctrb1 high(Fetal_Stomache),Acinar_cell,Fetal-stomach
+Erythroblast_Car2 high(Fetal_Stomache),Erythroblast,Fetal-stomach
+Endocrine cell(Fetal_Stomache),Endocrine_cell,Fetal-stomach
+Smooth muscle(Fetal_Stomache),Smooth_muscle_cell,Fetal-stomach
+Mast cell(Fetal_Stomache),Mast_cell,Fetal-stomach
+Immunocyte_Lyz2 high(Fetal_Stomache),Immune_cell,Fetal-stomach
+Neuron(Fetal_Stomache),Neuron,Fetal-stomach
+Neutrophil(Fetal_Stomache),Immune_cell,Fetal-stomach
+Erythroblast_Hbb-bs high(Fetal_Stomache),Erythroblast,Fetal-stomach
+Endocrine progenitor cell(Fetal_Stomache),Endocrine_progenitor_cell,Fetal-stomach
+Hepatocyte-Like Cell (Fetal_Stomache),Hepatocyte_like_cell,Fetal-stomach
+Stromal cell_Cdkn1c high(Fetal_Stomache),Stromal_cell,Fetal-stomach
+Epithelial cell(Fetal_Stomache),Epithelial_cell,Fetal-stomach
+Erythroblast_Hba-x HIGH(Fetal_Stomache),Erythroblast,Fetal-stomach
+Erythroblast_Klf1 high(Fetal_Stomache),Erythroblast,Fetal-stomach
+Erythroblast_Snca high(Fetal_Stomache),Erythroblast,Fetal-stomach
+Acinar cell_Spp1 high(Fetal_Stomache),Acinar_cell,Fetal-stomach
+Progenitor cell(Fetal_Stomache),Progenitor_cell,Fetal-stomach
+Proximal tubule brush border cell(Kidney),Proximal_renal_tubule_cell,Kidney
+Macrophage_Ccl4 high (Kidney),Immune_cell,Kidney
+Proximal tubule cell_Cyp4a14 high(Kidney),Proximal_renal_tubule_cell,Kidney
+Fenestrated endothelial cell_Plvap high(Kidney),Endothelial_cell,Kidney
+Distal collecting duct principal cell_Cldn4 high(Kidney),Distal_collecting_duct_principal_cell,Kidney
+Distal collecting duct principal cell_Hsd11b2 high(Kidney),Distal_collecting_duct_principal_cell,Kidney
+Fenestrated endothelial cell_Tm4sf1 high(Kidney),Endothelial_cell,Kidney
+Stromal cell_Ptgds high(Kidney),Stromal_cell,Kidney
+Endothelial cell(Kidney),Endothelial_cell,Kidney
+Epithelial cell_Cryab high(Kidney),Epithelial_cell,Kidney
+T cell(Kidney),Immune_cell,Kidney
+Thick ascending limb of the loop of Henle(Kidney),Loop_of_Henle_cell,Kidney
+Macrophage_Lyz2 high(Kidney),Immune_cell,Kidney
+Stromal cell_Dcn high(Kidney),Stromal_cell,Kidney
+Dendritic cell_Ccr7 high(Kidney),Immune_cell,Kidney
+Ureteric epithelium(Kidney),Epithelial_cell,Kidney
+Dendritic cell_Cst3 high(Kidney),Immune_cell,Kidney
+Stromal cell_Cxcl10 high(Kidney),Stromal_cell,Kidney
+Plasma cells(Kidney),Plasma_cell,Kidney
+Stromal cell_Ankrd1 high(Kidney),Stromal_cell,Kidney
+Stromal cell_Mgp high(Kidney),Stromal_cell,Kidney
+Neutrophil progenitor_S100a8 high(Kidney),Neutrophil_progenitor,Kidney
+Distal convoluted tubule_Pvalb high(Kidney),Distal_convoluted_tubule_cell,Kidney
+Proximal tubule cell_Osgin1 high(Kidney),Proximal_renal_tubule_cell,Kidney
+Intercalated cells of collecting duct_Aqp6 high(Kidney),Intercalated_cell,Kidney
+S1 proximal tubule cells(Kidney),S1_proximal_tubule_cell,Kidney
+Intercalated cells of collecting duct_Slc26a4 high(Kidney),Intercalated_cell,Kidney
+S3 proximal tubule cells(Kidney),S3_proximal_tubule_cell,Kidney
+Distal convoluted tubule_S100g high(Kidney),Distal_convoluted_tubule_cell,Kidney
+Endothelial cell(Liver),Endothelial_cell,Liver
+T cell_Gzma high(Liver),Immune_cell,Liver
+Epithelia cell_Spp1 high(Liver),Epithelial_cell,Liver
+B cell_Fcmr high(Liver),Immune_cell,Liver
+Dendritic cell_Siglech high(Liver),Immune_cell,Liver
+Erythroblast_Hbb-bt high(Liver),Erythroblast,Liver
+B cell_Jchain high(Liver),Immune_cell,Liver
+Periportal (PP) hepatocyte(Liver),Hepatocyte,Liver
+Stromal cell(Liver),Stromal_cell,Liver
+Hepatocyte_mt-Nd4 high(Liver),Hepatocyte,Liver
+Epithelial cell(Liver),Epithelial_cell,Liver
+Kuppfer cell(Liver),Immune_cell,Liver
+Neutrophil_Ngp high(Liver),Immune_cell,Liver
+Dendritic cell_Cst3 high(Liver),Immune_cell,Liver
+Erythroblast_Hbb-bs high(Liver),Erythroblast,Liver
+T cell_Trbc2 high(Liver),Immune_cell,Liver
+Granulocyte(Liver),Granulocyte,Liver
+Macrophage_Chil3 high(Liver),Immune_cell,Liver
+Hepatocyte_Fabp1 high(Liver),Hepatocyte,Liver
+Pericentral (PC) hepatocytes(Liver),Hepatocyte,Liver
+AT2 Cell(Lung),Alveolar_type_2_cell,Lung
+Stromal cell_Dcn high(Lung),Stromal_cell,Lung
+Stromal cell_Inmt high(Lung),Stromal_cell,Lung
+Club Cell(Lung),Club_cell,Lung
+Conventional dendritic cell_Gngt2 high(Lung),Immune_cell,Lung
+AT1 Cell(Lung),Alveolar_type_1_cell,Lung
+Conventional dendritic cell_Mgl2 high(Lung),Immune_cell,Lung
+Nuocyte(Lung),Nuocyte,Lung
+Endothelial cell_Tmem100 high(Lung),Endothelial_cell,Lung
+Ciliated cell(Lung),Ciliated_cell,Lung
+Endothelial cell_Kdr high(Lung),Endothelial_cell,Lung
+B Cell(Lung),Immune_cell,Lung
+Endothelial cells_Vwf high(Lung),Endothelial_cell,Lung
+Neutrophil granulocyte(Lung),Immune_cell,Lung
+Dividing dendritic cells(Lung),Immune_cell,Lung
+Stromal cell_Acta2 high(Lung),Stromal_cell,Lung
+Dividing T cells(Lung),Immune_cell,Lung
+Dividing cells(Lung),Dividing_cell,Lung
+Alveolar macrophage_Pclaf high(Lung),Immune_cell,Lung
+Alveolar bipotent progenitor(Lung),Alveolar_progenitor,Lung
+Ig−producing B cell(Lung),Immune_cell,Lung
+Conventional dendritic cell_H2-M2 high(Lung),Immune_cell,Lung
+Alveolar macrophage_Ear2 high(Lung),Immune_cell,Lung
+Basophil(Lung),Immune_cell,Lung
+Monocyte progenitor cell(Lung),Monocyte_progenitor,Lung
+Conventional dendritic cell_Tubb5 high(Lung),Immune_cell,Lung
+T Cell_Cd8b1 high(Lung),Immune_cell,Lung
+Plasmacytoid dendritic cell(Lung),Immune_cell,Lung
+NK Cell(Lung),Immune_cell,Lung
+Eosinophil granulocyte(Lung),Immune_cell,Lung
+Interstitial macrophage(Lung),Immune_cell,Lung
+Dendritic cell_Naaa high(Lung),Immune_cell,Lung
+Cardiac Muscle Progenitor cell(Lung-Mesenchyme),Cardiac_muscle_progenitor,Lung-mesenchyme
+Axin2+ Myofibrogenic Progenitor cell_Acta2 high(Lung-Mesenchyme),Myofibrogenic_progenitor,Lung-mesenchyme
+Axin2+ Myofibrogenic Progenitor cell_Cox4i2 high(Lung-Mesenchyme),Myofibrogenic_progenitor,Lung-mesenchyme
+Epithelial Cells(Lung-Mesenchyme),Epithelial_cell,Lung-mesenchyme
+Mesenchymal Alveolar Niche Cell_Dcn high(Lung-Mesenchyme),Mesenchymal_cell,Lung-mesenchyme
+Stromal cell_Inmt high(Lung-Mesenchyme),Stromal_cell,Lung-mesenchyme
+Stromal cell_Aspn high(Lung-Mesenchyme),Stromal_cell,Lung-mesenchyme
+Mesenchymal Alveolar Niche Cell_Mmp2 high(Lung-Mesenchyme),Mesenchymal_cell,Lung-mesenchyme
+Sertoli cells_Cst9 high(Male_Fetal_Gonad),Sertoli_cell,Male-fetal-gonad
+Erythrocyte_Car2 high(Male_Fetal_Gonad),Erythrocyte,Male-fetal-gonad
+Epithelial cells (Male_Fetal_Gonad),Epithelial_cell,Male-fetal-gonad
+Dendritic cells(Male_Fetal_Gonad),Immune_cell,Male-fetal-gonad
+Smooth muscle cell_Mgp high(Male_Fetal_Gonad),Smooth_muscle_cell,Male-fetal-gonad
+Basophils(Male_Fetal_Gonad),Immune_cell,Male-fetal-gonad
+Neutrophil(Male_Fetal_Gonad),Immune_cell,Male-fetal-gonad
+Premeiotic germ cells(Male_Fetal_Gonad),Premeiotic_germ_cell,Male-fetal-gonad
+Stromal cell(Male_Fetal_Gonad),Stromal_cell,Male-fetal-gonad
+Smooth muscle cell_Ptn high(Male_Fetal_Gonad),Smooth_muscle_cell,Male-fetal-gonad
+Leydig cells(Male_Fetal_Gonad),Leydig_cells,Male-fetal-gonad
+Pre-sertoli cells (Male_Fetal_Gonad),Pre-Sertoli_cell,Male-fetal-gonad
+Cycling cells(Male_Fetal_Gonad),Cycling_cell,Male-fetal-gonad
+Th cell(Male_Fetal_Gonad),Immune_cell,Male-fetal-gonad
+Erythrocyte_Hba-a2 high(Male_Fetal_Gonad),Erythrocyte,Male-fetal-gonad
+Secretory alveoli cell_Trf high(Mammary-Gland-Involution),Secretory_alveoli_cell,Mammary-gland-involution
+Macrophage_Retnla high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+Endothelial cell_Fabp4 high(Mammary-Gland-Involution),Endothelial_cell,Mammary-gland-involution
+Macrophage_Apoe high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+Macrophage_Plbd1 high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+Dendritic cell_Ccl22 high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+T cell_Icos high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+Secretory alveoli cell_Csn2 high(Mammary-Gland-Involution),Secretory_alveoli_cell,Mammary-gland-involution
+Dendritic cell_Il1b high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+Muscle cell_Inmt high(Mammary-Gland-Involution),Muscle_cell,Mammary-gland-involution
+Endothelial cell_Aqp1 high(Mammary-Gland-Involution),Endothelial_cell,Mammary-gland-involution
+Stromal cell(Mammary-Gland-Involution),Stromal_cell,Mammary-gland-involution
+NK cell_Gzma high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+Endothelial cell_Glycam1 high(Mammary-Gland-Involution),Endothelial_cell,Mammary-gland-involution
+Dendritic cell_Siglech high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+Endothelial cell_Fabp4&Aqp1 high(Mammary-Gland-Involution),Endothelial_cell,Mammary-gland-involution
+Mast cell(Mammary-Gland-Involution),Mast_cell,Mammary-gland-involution
+NK cell_Cd8b1 high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+B cell_Cd79a high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+Muscle cell_Pi16 high(Mammary-Gland-Involution),Muscle_cell,Mammary-gland-involution
+Macrophage_Pf4 high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+Plasma cells(Mammary-Gland-Involution),Plasma_cell,Mammary-gland-involution
+T cell_Pclaf high(Mammary-Gland-Involution),Immune_cell,Mammary-gland-involution
+Luminal cell(Mammary-Gland-Involution),Luminal_cell,Mammary-gland-involution
+Plasma cells(Mammary-Gland-Lactation),Plasma_cell,Mammary-gland-lactation
+Secretory alveoli cell_Clu high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Iglc1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Adiocyte cell(Mammary-Gland-Lactation),Adipocyte,Mammary-gland-lactation
+Secretory alveoli cell_Cidea&Elovl5 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Dendritic cell(Mammary-Gland-Lactation),Immune_cell,Mammary-gland-lactation
+Secretory alveoli cell_Cgrrf1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Hspa1a high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Wfdc17 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Dnajb1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Macrophage_C1qb high(Mammary-Gland-Lactation),Immune_cell,Mammary-gland-lactation
+Secretory alveoli cell_Fth1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+B cell_Igkv6-15 high(Mammary-Gland-Lactation),Immune_cell,Mammary-gland-lactation
+Natural kill cell(Mammary-Gland-Lactation),Immune_cell,Mammary-gland-lactation
+Secretory alveoli cell_Gpx3 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Spp1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Macrophage_Cd74 high(Mammary-Gland-Lactation),Immune_cell,Mammary-gland-lactation
+Secretory alveoli cell_Malat1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Igkv1-110 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Igkv1-110&P4hb high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Hes1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Klf2 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Fth1&Wfdc3 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_mt-Tp high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Gm1673 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Actb high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Klf6 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Tmsb10 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Bckdha high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Cidea&Fth1&Wfdc3 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Ifi35 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Igkv1-117 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Retnla high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Cidea high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Ptpn18 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+T cell(Mammary-Gland-Lactation),Immune_cell,Mammary-gland-lactation
+Stromal cell(Mammary-Gland-Lactation),Stromal_cell,Mammary-gland-lactation
+Secretory alveoli cell_Kif5b high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Lyz2 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Apod high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Pa2g4 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Hsp90aa1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Yif1b1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Atf3 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Fth1&Cib1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Ccng1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Sh3bgrl3 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Snord118 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Rgs2_high_Rora high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Ube2e3 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Ighm1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Srsf11 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Prkcsh high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Ggnbp2 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Clpx high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Cfd high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Ehf high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Mat2a high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Ly6a high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+B cell_Igkv6-23 high(Mammary-Gland-Lactation),Immune_cell,Mammary-gland-lactation
+Secretory alveoli cell_Naxd high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Sars high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Tyrobp high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Cd63 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Gadd45b high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Tmem123 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Cide&Wfdc3&Wap high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_AW112010 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Igsf8 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Muscel cell(Mammary-Gland-Lactation),Muscle_cell,Mammary-gland-lactation
+Secretory alveoli cell_Igfbp7 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Rac2 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Fcer1g high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Mrpl15 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Rhob high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Cnp high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Lgals1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Wfdc3&Wap high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Thy1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Crip1 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Taf1d high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_S100a11 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Tubb5 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Smooth muscle(Mammary-Gland-Lactation),Smooth_muscle_cell,Mammary-gland-lactation
+Secretory alveoli cell_Ifi27l2a_high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Cd83_high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Secretory alveoli cell_Cyb561 high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Smooth muscle_Myl9 high(Mammary-Gland-Lactation),Smooth_muscle_cell,Mammary-gland-lactation
+Secretory alveoli cell_Ppp2r3a high(Mammary-Gland-Lactation),Secretory_alveoli_cell,Mammary-gland-lactation
+Ductal luminal cell(Mammary-Gland-Pregrancy),Luminal_cell,Mammary-gland-pregnancy
+Macrophage(Mammary-Gland-Pregrancy),Immune_cell,Mammary-gland-pregnancy
+Dendritic cell_Cd209a high(Mammary-Gland-Pregrancy),Immune_cell,Mammary-gland-pregnancy
+Dendritic cell_Fscn1 high(Mammary-Gland-Pregrancy),Immune_cell,Mammary-gland-pregnancy
+Endothelial cell(Mammary-Gland-Pregrancy),Endothelial_cell,Mammary-gland-pregnancy
+Luminal cell(Mammary-Gland-Pregrancy),Luminal_cell,Mammary-gland-pregnancy
+Mast cell(Mammary-Gland-Pregrancy),Mast_cell,Mammary-gland-pregnancy
+T cell_Grwd1 high(Mammary-Gland-Pregrancy),Immune_cell,Mammary-gland-pregnancy
+Plasma cells(Mammary-Gland-Pregrancy),Plasma_cell,Mammary-gland-pregnancy
+Neuron(Mammary-Gland-Pregrancy),Neuron,Mammary-gland-pregnancy
+T cell(Mammary-Gland-Pregrancy),Immune_cell,Mammary-gland-pregnancy
+B cell_Ly6d high(Mammary-Gland-Pregrancy),Immune_cell,Mammary-gland-pregnancy
+Secretory alveoli cell(Mammary-Gland-Pregrancy),Secretory_alveoli_cell,Mammary-gland-pregnancy
+Stromal cell(Mammary-Gland-Pregrancy),Stromal_cell,Mammary-gland-pregnancy
+NK_cells_Gzmb high(Mammary-Gland-Pregrancy),Immune_cell,Mammary-gland-pregnancy
+NK cell_Gzma high(Mammary-Gland-Pregrancy),Immune_cell,Mammary-gland-pregnancy
+Myeloid leukocyte(Mammary-Gland-Pregrancy),Immune_cell,Mammary-gland-pregnancy
+Myoepithelial cell(Mammary-Gland-Pregrancy),Myoepithelial_cell,Mammary-gland-pregnancy
+T cell_Cd8b1 high(Mammary-Gland-Virgin),Immune_cell,Mammary-gland-virgin
+Luminal cell_Krt19 high (Mammary-Gland-Virgin),Luminal_cell,Mammary-gland-virgin
+Stem and progenitor cell(Mammary-Gland-Virgin),Stem_cell,Mammary-gland-virgin
+Dendritic cell_Cst3 high(Mammary-Gland-Virgin),Immune_cell,Mammary-gland-virgin
+Macrophage_C1qc high(Mammary-Gland-Virgin),Immune_cell,Mammary-gland-virgin
+NK cell(Mammary-Gland-Virgin),Immune_cell,Mammary-gland-virgin
+Stromal cell_Pi16 high(Mammary-Gland-Virgin),Stromal_cell,Mammary-gland-virgin
+Dendritic cell_Siglech high(Mammary-Gland-Virgin),Immune_cell,Mammary-gland-virgin
+Luminal progenitor(Mammary-Gland-Virgin),Luminal_progenitor,Mammary-gland-virgin
+Plasma cells(Mammary-Gland-Virgin),Plasma_cell,Mammary-gland-virgin
+B cell_Cd79a&Iglc2 high(Mammary-Gland-Virgin),Immune_cell,Mammary-gland-virgin
+Stromal cell_Col3a1 high(Mammary-Gland-Virgin),Stromal_cell,Mammary-gland-virgin
+T cell_Ly6c2 high(Mammary-Gland-Virgin),Immune_cell,Mammary-gland-virgin
+Dividing cell(Mammary-Gland-Virgin),Dividing_cell,Mammary-gland-virgin
+B cell_Cd79a&Fcer2a high(Mammary-Gland-Virgin),Immune_cell,Mammary-gland-virgin
+Dendritic cell_Fscn1 high(Mammary-Gland-Virgin),Immune_cell,Mammary-gland-virgin
+Macrophage_Lyz1 high(Mammary-Gland-Virgin),Immune_cell,Mammary-gland-virgin
+T-cells_Ctla4 high(Mammary-Gland-Virgin),Immune_cell,Mammary-gland-virgin
+Mesenchymal stem cell_Cxcl1 high(Mesenchymal-Stem-Cell-Cultured),Mesenchymal_stem_cell,Mesenchymal-stem-cell-culture
+Mesenchymal stem cell_Tmsb10 high(Mesenchymal-Stem-Cell-Cultured),Mesenchymal_stem_cell,Mesenchymal-stem-cell-culture
+Mesenchymal stem cell_Cxcl10 high(Mesenchymal-Stem-Cell-Cultured),Mesenchymal_stem_cell,Mesenchymal-stem-cell-culture
+Erythroblast_Car2 high(Muscle),Erythroblast,Muscle
+Endothelial cell(Muscle),Endothelial_cell,Muscle
+Stromal cell(Muscle),Stromal_cell,Muscle
+Macrophage_Retnla high(Muscle),Immune_cell,Muscle
+B cell_Jchain high(Muscle),Immune_cell,Muscle
+Dendritic cell(Muscle),Immune_cell,Muscle
+slow Muscle skeletal cell_Tnnc1 high(Muscle),Skeletal_muscle_cell,Muscle
+T cell(Muscle),Immune_cell,Muscle
+Eosinophil_Prg2 high(Muscle),Immune_cell,Muscle
+Neutrophil_Camp high(Muscle),Immune_cell,Muscle
+Macrophage_Ms4a6c high(Muscle),Immune_cell,Muscle
+Neutrophil_Retnlg high(Muscle),Immune_cell,Muscle
+B cell_Vpreb3 high(Muscle),Immune_cell,Muscle
+Muscle progenitor cell(Muscle),Muscle_progenitor,Muscle
+Granulocyte monocyte progenitor cell(Muscle),Monocyte_progenitor,Muscle
+Fast Muscle skeletal cell_Tnnc2 high(Muscle),Skeletal_muscle_cell,Muscle
+Erythroblast_Car1 high(Muscle),Erythroblast,Muscle
+Neurons(Neonatal_Brain),Neuron,Neonatal-brain
+Stromal cell_Dcn high(Neonatal_Brain),Stromal_cell,Neonatal-brain
+Macrophage(Neonatal_Brain),Immune_cell,Neonatal-brain
+Hypothalamic ependymal cell(Neonatal_Brain),Ependymocyte,Neonatal-brain
+Oligodendrocytes(Neonatal_Brain),Oligodendrocyte,Neonatal-brain
+Multiciliated epithelial cell(Neonatal_Brain),Epithelial_cell,Neonatal-brain
+Stromal cell(Neonatal_Brain),Stromal_cell,Neonatal-brain
+Smooth muscle(Neonatal_Brain),Smooth_muscle_cell,Neonatal-brain
+Microglia(Neonatal_Brain),Microglia,Neonatal-brain
+Radial glia(Neonatal_Brain),Radial_glia_cell,Neonatal-brain
+Immature neurons(Neonatal_Brain),Neuron,Neonatal-brain
+GABAergic neurons(Neonatal_Brain),Neuron,Neonatal-brain
+Astrocytes(Neonatal_Brain),Astrocyte,Neonatal-brain
+Pyramidal neuron cell(Neonatal_Brain),Neuron,Neonatal-brain
+Vascular Endothelial cell(Neonatal_Brain),Endothelial_cell,Neonatal-brain
+Choroid plexus epithelium(Neonatal_Brain),Epithelial_cell,Neonatal-brain
+Preosteoblast/Osteoblast/Bone cell/Cartilage cell(Neonatal-Calvaria),Preosteoblast,Neonatal-calvaria
+Erythroblast(Neonatal-Calvaria),Erythroblast,Neonatal-calvaria
+Stromal cell_Col3a1 high(Neonatal-Calvaria),Stromal_cell,Neonatal-calvaria
+Skeletal muscle_Actc1 high(Neonatal-Calvaria),Skeletal_muscle_cell,Neonatal-calvaria
+Granulocyte monocyte progenitor cell(Neonatal-Calvaria),Monocyte_progenitor,Neonatal-calvaria
+Smooth muscle_Myl9 high(Neonatal-Calvaria),Smooth_muscle_cell,Neonatal-calvaria
+Osteoblast (Neonatal-Calvaria),Osteoblast,Neonatal-calvaria
+Muscle cell_Junb high(Neonatal-Calvaria),Muscle_cell,Neonatal-calvaria
+Stromal cell_Col1a1 high(Neonatal-Calvaria),Stromal_cell,Neonatal-calvaria
+Neutrophil(Neonatal-Calvaria),Immune_cell,Neonatal-calvaria
+Neuron(Neonatal-Calvaria),Neuron,Neonatal-calvaria
+Dividng cell(Neonatal-Calvaria),Dividing_cell,Neonatal-calvaria
+Mast cell(Neonatal-Calvaria),Mast_cell,Neonatal-calvaria
+Endothelial cell(Neonatal-Calvaria),Endothelial_cell,Neonatal-calvaria
+Left ventricle cardiomyocyte_Myl2 high(Neonatal-Heart),Cardiomyocyte,Neonatal-heart
+Ventricle cardiomyocyte_Kcnj8 high(Neonatal-Heart),Cardiomyocyte,Neonatal-heart
+Dividing cell(Neonatal-Heart),Dividing_cell,Neonatal-heart
+Cardiac muscle cell(Neonatal-Heart),Cardiomyocyte,Neonatal-heart
+Dendritic cell(Neonatal-Heart),Immune_cell,Neonatal-heart
+Endothelial cell_Enpp2 high(Neonatal-Heart),Endothelial_cell,Neonatal-heart
+Neutrophil_Ngp high(Neonatal-Heart),Immune_cell,Neonatal-heart
+Neutrophil_Retnlg high(Neonatal-Heart),Immune_cell,Neonatal-heart
+Epithelial cell(Neonatal-Heart),Epithelial_cell,Neonatal-heart
+Endothelial cell_Eln high(Neonatal-Heart),Endothelial_cell,Neonatal-heart
+Stromal cell_Col3a1 high(Neonatal-Heart),Stromal_cell,Neonatal-heart
+Endothelial cell_Igfbp5 high(Neonatal-Heart),Endothelial_cell,Neonatal-heart
+Vascular endothelial cell(Neonatal-Heart),Endothelial_cell,Neonatal-heart
+Stromal cell_Fmod high(Neonatal-Heart),Stromal_cell,Neonatal-heart
+Smooth muscle cell(Neonatal-Heart),Smooth_muscle_cell,Neonatal-heart
+Atrial cardiomyocyte_Acta2 high(Neonatal-Heart),Cardiomyocyte,Neonatal-heart
+Atrial cardiomyocyte(Neonatal-Heart),Cardiomyocyte,Neonatal-heart
+Macrophage(Neonatal-Heart),Immune_cell,Neonatal-heart
+Stromal cell_Ndn high(Neonatal-Muscle),Stromal_cell,Neonatal-muscle
+Endothelial cell(Neonatal-Muscle),Endothelial_cell,Neonatal-muscle
+Macrophage_Lyz2 high(Neonatal-Muscle),Immune_cell,Neonatal-muscle
+Macrophage_Pf4 high(Neonatal-Muscle),Immune_cell,Neonatal-muscle
+Brown adipose tissue(Neonatal-Muscle),Brown_adipocyte,Neonatal-muscle
+Fast skeletal muscle_Myl1 high(Neonatal-Muscle),Skeletal_muscle_cell,Neonatal-muscle
+Pre-B cell(Neonatal-Muscle),Pre_B_cell,Neonatal-muscle
+Neuron(Neonatal-Muscle),Neuron,Neonatal-muscle
+Smooth muscle cell_Mylk high(Neonatal-Muscle),Smooth_muscle_cell,Neonatal-muscle
+Myeloid progenitor(Neonatal-Muscle),Myeloid_progenitor,Neonatal-muscle
+Mast cell(Neonatal-Muscle),Mast_cell,Neonatal-muscle
+Mesenchymal cell(Neonatal-Muscle),Mesenchymal_cell,Neonatal-muscle
+Erythroblast_Car2 high(Neonatal-Muscle),Erythroblast,Neonatal-muscle
+Erythroblast_Hbb-bs high(Neonatal-Muscle),Erythroblast,Neonatal-muscle
+Glial cell(Neonatal-Muscle),Glial_cell,Neonatal-muscle
+Adipocyte (Neonatal-Muscle),Adipocyte,Neonatal-muscle
+T cell(Neonatal-Muscle),Immune_cell,Neonatal-muscle
+Dendritic cell(Neonatal-Muscle),Immune_cell,Neonatal-muscle
+Fast skeletal muscle cell_Tnnc2 high(Neonatal-Muscle),Skeletal_muscle_cell,Neonatal-muscle
+Stromal cell_Spp1 high(Neonatal-Muscle),Stromal_cell,Neonatal-muscle
+Neutrophil_Stfa3 high(Neonatal-Muscle),Immune_cell,Neonatal-muscle
+Epithelial cell(Neonatal-Muscle),Epithelial_cell,Neonatal-muscle
+Neutrophil_Hmox1 high(Neonatal-Muscle),Immune_cell,Neonatal-muscle
+Smooth muscle_Myl9 high(Neonatal-Muscle),Smooth_muscle_cell,Neonatal-muscle
+Skeletal muscle_Actc1 high(Neonatal-Muscle),Skeletal_muscle_cell,Neonatal-muscle
+Tendon stem/progenitor cell(Neonatal-Muscle),Tendon_stem_cell,Neonatal-muscle
+Chondrocyte(Neonatal-Muscle),Chondrocyte,Neonatal-muscle
+Erythroblast_Ttr high(Neonatal-Rib),Erythroblast,Neonatal-rib
+Macrophage_Ctss high(Neonatal-Rib),Immune_cell,Neonatal-rib
+Erythroblast_Hba-a1 high(Neonatal-Rib),Erythroblast,Neonatal-rib
+Pre-B cell(Neonatal-Rib),Pre_B_cell,Neonatal-rib
+Myeloid progenitor(Neonatal-Rib),Myeloid_progenitor,Neonatal-rib
+Skeletal muscle cell_Chodl high(Neonatal-Rib),Skeletal_muscle_cell,Neonatal-rib
+Myeloid progenitor_Elane high(Neonatal-Rib),Myeloid_progenitor,Neonatal-rib
+Osteoblast(Neonatal-Rib),Osteoblast,Neonatal-rib
+Neuron_Stmn2 high(Neonatal-Rib),Neuron,Neonatal-rib
+Macrophage_C1qc high(Neonatal-Rib),Immune_cell,Neonatal-rib
+Dividing cell(Neonatal-Rib),Dividing_cell,Neonatal-rib
+Neutrophil(Neonatal-Rib),Immune_cell,Neonatal-rib
+Smooth muscle_Acta2 high(Neonatal-Rib),Smooth_muscle_cell,Neonatal-rib
+Endothelial cell(Neonatal-Rib),Endothelial_cell,Neonatal-rib
+Neuron_Mpz high(Neonatal-Rib),Neuron,Neonatal-rib
+Oligodendrocyte(Neonatal-Rib),Oligodendrocyte,Neonatal-rib
+Skeletal muscle cell_Actc1 high(Neonatal-Rib),Skeletal_muscle_cell,Neonatal-rib
+Osteoclast(Neonatal-Rib),Osteoclast,Neonatal-rib
+Cartilage cell_Col2a1 high(Neonatal-Rib),Cartilage_cell,Neonatal-rib
+Cartilage cell_Cxcl14 high(Neonatal-Rib),Cartilage_cell,Neonatal-rib
+Cartilage cell_Prg4 high(Neonatal-Rib),Cartilage_cell,Neonatal-rib
+Cartilage cell_Clu high(Neonatal-Rib),Cartilage_cell,Neonatal-rib
+Stromal cell_Acta1 high(Neonatal-Rib),Stromal_cell,Neonatal-rib
+Cartilage cell_Ppa1 high(Neonatal-Rib),Cartilage_cell,Neonatal-rib
+Stromal cell_Tnmd high(Neonatal-Rib),Stromal_cell,Neonatal-rib
+Osteoblast_Ppic high(Neonatal-Skin),Osteoblast,Neonatal-skin
+Dividing cell(Neonatal-Skin),Dividing_cell,Neonatal-skin
+Mast cell(Neonatal-Skin),Mast_cell,Neonatal-skin
+Keratinocyte(Neonatal-Skin),Keratinocyte,Neonatal-skin
+Stromal cell_Akr1c18 high(Neonatal-Skin),Stromal_cell,Neonatal-skin
+Smooth muscle cell_Acta2 high(Neonatal-Skin),Smooth_muscle_cell,Neonatal-skin
+Fast skeletal muscle cell_Actc1 high(Neonatal-Skin),Skeletal_muscle_cell,Neonatal-skin
+Neuron(Neonatal-Skin),Neuron,Neonatal-skin
+Melanocyte(Neonatal-Skin),Melanocyte,Neonatal-skin
+Brown adipose tissue_Cox8b high(Neonatal-Skin),Brown_adipocyte,Neonatal-skin
+Dermal macrophage_Pf4 high(Neonatal-Skin),Immune_cell,Neonatal-skin
+Stromal cell_Gas6 high(Neonatal-Skin),Stromal_cell,Neonatal-skin
+Dermal macrophage_Cd74 high(Neonatal-Skin),Immune_cell,Neonatal-skin
+Macrophage_Lyz2 high(Neonatal-Skin),Immune_cell,Neonatal-skin
+Brown adipose tissue_mt-Nd5 high(Neonatal-Skin),Brown_adipocyte,Neonatal-skin
+Lymphatic vessel endothelial cell(Neonatal-Skin),Endothelial_cell,Neonatal-skin
+Neutrophil(Neonatal-Skin),Immune_cell,Neonatal-skin
+Adipocyte(Neonatal-Skin),Adipocyte,Neonatal-skin
+Osteoblast_Dlk1 high(Neonatal-Skin),Osteoblast,Neonatal-skin
+Brown adipose tissue_Cidea high(Neonatal-Skin),Brown_adipocyte,Neonatal-skin
+Erythroblast(Neonatal-Skin),Erythroblast,Neonatal-skin
+Endothelial cell(Neonatal-Skin),Endothelial_cell,Neonatal-skin
+Smooth muscle Lrrc15 high(Neonatal-Skin),Smooth_muscle_cell,Neonatal-skin
+Epithelial cell(Neonatal-Skin),Epithelial_cell,Neonatal-skin
+Cumulus cell_Car14 high(Ovary),Cumulus_cell,Ovary
+Large luteal cell(Ovary),Luteal_cell,Ovary
+Ovarian vascular surface endothelium cell(Ovary),Endothelial_cell,Ovary
+Macrophage_Lyz2 high(Ovary),Immune_cell,Ovary
+Ovarian surface epithelium cell(Ovary),Epithelial_cell,Ovary
+Marcrophage_Cd74 high(Ovary),Immune_cell,Ovary
+Small luteal cell(Ovary),Luteal_cell,Ovary
+luteal cells(Ovary),Luteal_cell,Ovary
+Stroma cell (Ovary),Stromal_cell,Ovary
+Thecal cell(Ovary),Thecal_cell,Ovary
+Cumulus cell_Ube2c high(Ovary),Cumulus_cell,Ovary
+Cumulus cell_Nupr1 high(Ovary),Cumulus_cell,Ovary
+Granulosa cell_Kctd14 high(Ovary),Granulosa_cell,Ovary
+Granulosa cell_Inhba high(Ovary),Granulosa_cell,Ovary
+Erythroblast_Igkc high(Pancreas),Erythroblast,Pancreas
+Endocrine cell(Pancreas),Endocrine_cell,Pancreas
+Stromal cell_Mfap4 high(Pancreas),Stromal_cell,Pancreas
+Erythroblast_Hbb-bt high(Pancreas),Erythroblast,Pancreas
+T cell(Pancreas),Immune_cell,Pancreas
+Dendrtic cell(Pancreas),Immune_cell,Pancreas
+Smooth muscle cell_Rgs5 high(Pancreas),Smooth_muscle_cell,Pancreas
+Endothelial cell_Lrg1 high(Pancreas),Endothelial_cell,Pancreas
+Smooth muscle cell_Acta2 high(Pancreas),Smooth_muscle_cell,Pancreas
+Granulocyte(Pancreas),Granulocyte,Pancreas
+Macrophage_Ly6c2 high(Pancreas),Immune_cell,Pancreas
+Endothelial cell_Fabp4 high(Pancreas),Endothelial_cell,Pancreas
+Plasma cells(Pancreas),Plasma_cell,Pancreas
+Glial cell(Pancreas),Glial_cell,Pancreas
+Dividing cell(Pancreas),Dividing_cell,Pancreas
+Stromal cell_Smoc2 high(Pancreas),Stromal_cell,Pancreas
+Ductal cell(Pancreas),Ductal_cell,Pancreas
+Macrophage(Pancreas),Immune_cell,Pancreas
+Acinar cell(Pancreas),Acinar_cell,Pancreas
+Stromal cell_Fn1 high(Pancreas),Stromal_cell,Pancreas
+Endothelial cell_Tm4sf1 high(Pancreas),Endothelial_cell,Pancreas
+β-cell(Pancreas),Immune_cell,Pancreas
+T cell_Trbc2 high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Monocyte_Elane high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Pre-B cell(Peripheral_Blood),Pre_B_cell,Peripheral-blood
+Monocyte_F13a1 high(Peripheral_Blood),Immune_cell,Peripheral-blood
+T cell_Gm14303 high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Erythroblast_Car2 high(Peripheral_Blood),Erythroblast,Peripheral-blood
+B cell_Rps27rt high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Dendritic cell_Siglech high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Basophil_Prss34 high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Macrophage_Pf4 high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Plasma cells(Peripheral_Blood),Plasma_cell,Peripheral-blood
+B cell_Ly6d high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Macrophage_Flt-ps1 high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Erythroblast_Hba-a2 high(Peripheral_Blood),Erythroblast,Peripheral-blood
+Macrophage_S100a4 high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Neutrophil_Retnlg high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Neutrophil_Ltf high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Neutrophil_Camp high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Neutrophil_Il1b high(Peripheral_Blood),Immune_cell,Peripheral-blood
+NK cell_Gzma high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Macrophage_Ace high(Peripheral_Blood),Immune_cell,Peripheral-blood
+Invasive spongiotrophoblast(Placenta),Spongiotrophoblast,Placenta
+Spongiotrophoblast_Phlda2 high(Placenta),Spongiotrophoblast,Placenta
+Stromal cell(Placenta),Stromal_cell,Placenta
+Endothelial cell_Maged2 high(Placenta),Endothelial_cell,Placenta
+Decidual stromal cell(Placenta),Stromal_cell,Placenta
+Endodermal cell_Afp high(Placenta),Endodermal_cell,Placenta
+Spongiotrophoblast_Hsd11b2 high(Placenta),Spongiotrophoblast,Placenta
+Erythroblast_Hbb-y high(Placenta),Erythroblast,Placenta
+Trophoblast progenitor_Taf7l high(Placenta),Trophoblast_progenitor,Placenta
+Granulocyte_S100a9 high(Placenta),Granulocyte,Placenta
+NK cell(Placenta),Immune_cell,Placenta
+Progenitor trophoblast_Gjb3 high(Placenta),Trophoblast_progenitor,Placenta
+Granulocyte_Neat1 high(Placenta),Granulocyte,Placenta
+Basophil(Placenta),Immune_cell,Placenta
+Stromal cell_Acta2 high(Placenta),Stromal_cell,Placenta
+HSPC_Lmo2 high(Placenta),Hematopoetic_stem_cell,Placenta
+B cell(Placenta),Immune_cell,Placenta
+Labyrinthine trophoblast(Placenta),Trophoblast,Placenta
+NKT cell(Placenta),Immune_cell,Placenta
+Early Neutrophil(Placenta),Immune_cell,Placenta
+Megakaryocyte progenitor cell(Placenta),Megakaryocyte_progenitor,Placenta
+Macrophage_Spp1 high(Placenta),Immune_cell,Placenta
+Monocyte(Placenta),Immune_cell,Placenta
+Spiral artery trophoblast giant cells(Placenta),Trophoblast,Placenta
+PE lineage cell_S100g high(Placenta),Primitive_endoderm_cell,Placenta
+PE lineage cell_Gkn2 high(Placenta),Primitive_endoderm_cell,Placenta
+Dendritic cell(Placenta),Immune_cell,Placenta
+Macrophage_Apoe high(Placenta),Immune_cell,Placenta
+Zygote & Early 2 cell embroyo(Preimplantation-Embryo),Early_two_cell_embryo,Preimplantation-embryo
+Trophectoderm cell(Preimplantation-Embryo),Trophoectoderm_cell,Preimplantation-embryo
+The inner cell mass cells(Preimplantation-Embryo),Inner_cell_mass_cell,Preimplantation-embryo
+8cell embroyo(Preimplantation-Embryo),Eight_cell_embryo,Preimplantation-embryo
+Mid 2cell & Late 2cell embroyo(Preimplantation-Embryo),Late_two_cell_embryo,Preimplantation-embryo
+Prostate gland cell(Prostate),Prostate_gland_cell,Prostate
+Glandular epithelium(Prostate),Epithelial_cell,Prostate
+Dendritic cell(Prostate),Immune_cell,Prostate
+Epithelial cell(Prostate),Epithelial_cell,Prostate
+Stromal cell(Prostate),Stromal_cell,Prostate
+T cell(Prostate),Immune_cell,Prostate
+Pericytes(Retina),Pericyte,Retina
+Cones(Retina),Cone,Retina
+Rods(Retina),Rod,Retina
+Horizontal cells(Retina),Horizontal_cell,Retina
+Retinal ganglion cells(Retina),Retinal_ganglion_cell,Retina
+Bipolar cells_Pcp2_high(Retina),Bipolar_cell,Retina
+Amacrine cells_Rims1_high(Retina),Amacrine_cell,Retina
+Microglia(Retina),Microglia,Retina
+Muller glia(Retina),Muller_cell,Retina
+Fibroblasts(Retina),Fibroblast,Retina
+Astrocytes(Retina),Astrocyte,Retina
+Vascular endothelium(Retina),Endothelial_cell,Retina
+Amacrine cell_Cplx2_high(Retina),Amacrine_cell,Retina
+Amacrine cell_Tfap2b_high(Retina),Amacrine_cell,Retina
+Amacrine cell_Lamp5_high(Retina),Amacrine_cell,Retina
+Bipolar cell_Gsg1_high(Retina),Bipolar_cell,Retina
+Bipolar cell_Vsx1_high(Retina),Bipolar_cell,Retina
+Bipolar cell_Lhx4_high(Retina),Bipolar_cell,Retina
+Bipolar cell_Slit2_high(Retina),Bipolar_cell,Retina
+Plasma cells_Jchain high(Small-Intestine),Plasma_cell,Small-intestine
+T cell_Icos high(Small-Intestine),Immune_cell,Small-intestine
+Epithelium of small intestinal villi_Gm23935 high(Small-Intestine),Epithelial_cell,Small-intestine
+B cell_Ms4a1 high(Small-Intestine),Immune_cell,Small-intestine
+Macrophage_Apoe high(Small-Intestine),Immune_cell,Small-intestine
+B cell_Ighd high(Small-Intestine),Immune_cell,Small-intestine
+Epithelium of small intestinal villi_S100g high(Small-Intestine),Epithelial_cell,Small-intestine
+Plasma cells_Igkv12-46 high(Small-Intestine),Plasma_cell,Small-intestine
+Epithelium of small intestinal villi_mt-Nd1 high(Small-Intestine),Epithelial_cell,Small-intestine
+Macrophage_G0s2 high(Small-Intestine),Immune_cell,Small-intestine
+Dendrtic cell_Cst3 high(Small-Intestine),Immune_cell,Small-intestine
+T cell_Ccl5 high(Small-Intestine),Immune_cell,Small-intestine
+T cell_Ms4a4b high(Small-Intestine),Immune_cell,Small-intestine
+Dendritic cell_Siglech high(Small-Intestine),Immune_cell,Small-intestine
+Epithelial cell_Sh2d6 high(Small-Intestine),Epithelial_cell,Small-intestine
+S cell_Chgb high(Small-Intestine),S_cell,Small-intestine
+S cell_Gip high(Small-Intestine),S_cell,Small-intestine
+Stromal cell_Adamdec1 high(Small-Intestine),Stromal_cell,Small-intestine
+Stromal cell_Dcn high(Small-Intestine),Stromal_cell,Small-intestine
+Mast cell(Small-Intestine),Mast_cell,Small-intestine
+Macrophage_Cxcl2 high(Small-Intestine),Immune_cell,Small-intestine
+Epithelial cell_Kcne3 high(Small-Intestine),Epithelial_cell,Small-intestine
+T cell_Cd7 high(Small-Intestine),Immune_cell,Small-intestine
+Epithelium of small intestinal villi_Fabp1 high(Small-Intestine),Epithelial_cell,Small-intestine
+Erythroblast(Small-Intestine),Erythroblast,Small-intestine
+Epithelium of small intestinal villi_Fabp6 high(Small-Intestine),Epithelial_cell,Small-intestine
+Columnar epithelium(Small-Intestine),Epithelial_cell,Small-intestine
+Paneth cell(Small-Intestine),Paneth_cell,Small-intestine
+Marginal zone B cell(Spleen),Immune_cell,Spleen
+Erythroblast(Spleen),Erythroblast,Spleen
+Neutrophil(Spleen),Immune_cell,Spleen
+T cell(Spleen),Immune_cell,Spleen
+NK cell(Spleen),Immune_cell,Spleen
+Dendritic cell_S100a4 high(Spleen),Immune_cell,Spleen
+Monocyte(Spleen),Immune_cell,Spleen
+Granulocyte(Spleen),Granulocyte,Spleen
+Macrophage(Spleen),Immune_cell,Spleen
+Plasma cell(Spleen),Plasma_cell,Spleen
+Dendritic cell_Siglech high(Spleen),Immune_cell,Spleen
+Stomach cell_Gkn2 high(Stomach),Stomach_cell,Stomach
+Parietal cell (Stomach),Parietal_cell,Stomach
+Gastric mucosal cell(Stomach),Gastric_mucosal_cell,Stomach
+G cell(Stomach),G_cell,Stomach
+Stromal cell(Stomach),Stromal_cell,Stomach
+Epithelial cell_Gkn3 high(Stomach),Epithelial_cell,Stomach
+Macrophage(Stomach),Immune_cell,Stomach
+Tuft cell(Stomach),Tuft_cell,Stomach
+Dendritic cell(Stomach),Immune_cell,Stomach
+Stomach cell_Mt2 high(Stomach),Stomach_cell,Stomach
+Pit cell_Ifrd1 high(Stomach),Pit_cell,Stomach
+Antral mucous cell (Stomach),Antral_mucous_cell,Stomach
+Epithelial cell_Pla2g1b high(Stomach),Epithelial_cell,Stomach
+Stomach cell_Muc5ac high(Stomach),Stomach_cell,Stomach
+Epithelial cell_Krt20 high(Stomach),Epithelial_cell,Stomach
+Dividing cell(Stomach),Dividing_cell,Stomach
+Pit cell_Gm26917 high(Stomach),Pit_cell,Stomach
+Elongating spermatid(Testis),Spermatid,Testis
+Spermatocyte_Cabs1 high(Testis),Spermatocyte,Testis
+Spermatocyte_1700001F09Rik high(Testis),Spermatocyte,Testis
+Pre-Sertoli cell_Cst9 high(Testis),Pre-Sertoli_cell,Testis
+Leydig cell(Testis),Leydig_cells,Testis
+Spermatids_Hmgb4 high(Testis),Spermatid,Testis
+Sertoli cell(Testis),Sertoli_cell,Testis
+Macrophage_Lyz2 high(Testis),Immune_cell,Testis
+Spermatogonia_Tbc1d23 high(Testis),Spermatogonia,Testis
+Erythroblast_Hbb-bs high(Testis),Erythroblast,Testis
+Pre-Sertoli cell_Ctsl high(Testis),Pre-Sertoli_cell,Testis
+Spermatogonia_1700001P01Rik high(Testis),Spermatogonia,Testis
+Spermatocyte_Calm2 high(Testis),Spermatocyte,Testis
+Spermatocyte_Mesp1 high(Testis),Spermatocyte,Testis
+Spermatids_Cst13 high(Testis),Spermatid,Testis
+Spermatids_Tnp1 high(Testis),Spermatid,Testis
+Spermatids_1700016P04Rik high(Testis),Spermatid,Testis
+Spermatocyte_Slc2a3 high(Testis),Spermatocyte,Testis
+Preleptotene spermatogonia(Testis),Spermatogonia,Testis
+B cell(Thymus),Immune_cell,Thymus
+DPT cell(Thymus),Immune_cell,Thymus
+Proliferating thymocyte(Thymus),Thymocyte,Thymus
+abT cell(Thymus),Immune_cell,Thymus
+T cell_Ms4a4b high(Thymus),Immune_cell,Thymus
+gdT cell (Thymus),Immune_cell,Thymus
+Pre T cell(Thymus),Pre_T_cell,Thymus
+T cell_Id2 high(Thymus),Immune_cell,Thymus
+TS_Mrpl12_high(Trophoblast-Stem-Cell),Trophoblast_stem_cell,Unknown
+TS_Rps28_high(Trophoblast-Stem-Cell),Trophoblast_stem_cell,Unknown
+MEF(Trophoblast-Stem-Cell),Mouse_embryonic_fibroblast,Unknown
+TS_dif_epithelial(Trophoblast-Stem-Cell),Trophoblast_stem_cell,Unknown
+TS_Mrp155_high(Trophoblast-Stem-Cell),Trophoblast_stem_cell,Unknown
+Stromal cell_Hsd11b2 high(Uterus),Stromal_cell,Uterus
+Dendritic cell(Uterus),Immune_cell,Uterus
+Stromal cell_Gm23935 high(Uterus),Stromal_cell,Uterus
+Monocyte(Uterus),Immune_cell,Uterus
+Granulocyte(Uterus),Granulocyte,Uterus
+Glandular epithelium_Ltf high(Uterus),Epithelial_cell,Uterus
+Smooth muscle cell_Rgs5 high(Uterus),Smooth_muscle_cell,Uterus
+Muscle cell_Pcp4 high(Uterus),Muscle_cell,Uterus
+Endothelial cell_Cldn5 high(Uterus),Endothelial_cell,Uterus
+Keratinocyte(Uterus),Keratinocyte,Uterus
+Plasma cells(Uterus),Plasma_cell,Uterus
+Muscle cell_Mgp high(Uterus),Muscle_cell,Uterus
+Stromal cell_Ccl11 high(Uterus),Stromal_cell,Uterus
+Stromal cell_Cxcl14 high(Uterus),Stromal_cell,Uterus
+Stromal cell_Has1 high(Uterus),Stromal_cell,Uterus
+Macrophage(Uterus),Immune_cell,Uterus
+Endothelial cell_Tm4sf1 high(Uterus),Endothelial_cell,Uterus
+Glandular epithelium_Sprr2f high(Uterus),Epithelial_cell,Uterus
+NK cell(Uterus),Immune_cell,Uterus
