@@ -7,7 +7,7 @@ Single cell RNA sequencing (scRNA-seq) is a revolutionary technology which allow
 The pipeline consists of a number of functions and is generally divided into three parts: RescueTag for demultiplexing; RescueCluster for keeping more biological information during clustering; and AutoClusterType for annotation of clusters with cell types. Here you will find a tutorial on how to analyze your scRNA-seq data with RescueSC.
 
 ## Dependencies
-In this repository you can find an R file called "Dependencies_for_RescueSC.R". Inside this file there are all the necessary libraries which should be installed before using RescueSC. It is also written how to install the packages, which are not in CRAN. Versions of all the packages and the version of R which was used for the RescueSC development are written in the file as well. 
+In this repository you can find an R file called "Dependencies_for_RescueSC.R". Inside this file all the necessary libraries which should be installed before using RescueSC and their versions at the moment of the tool's development are listed. It is also written how to install the packages. The version of R which was used for the RescueSC development is written in the file as well. 
 
 After installation, load all the libraries into your workspace.
 ```
