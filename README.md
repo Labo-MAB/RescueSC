@@ -15,6 +15,9 @@ First of all, you need to download the "Final_RescueSC.R" file and load all the 
 source("Final_RescueSC.R")
 ```
 RescueSC works with a Seurat object, which contains read counts (nCount_RNA) and number of genes detected (nFeature_RNA) for every cell.
+
+NB! RescueSC works with the raw data after aligment. It is important to make sure that no preliminary quality control filtering was performed on the data after the alignment! 
+
 Therefore, the you need to create a variable with the Seurat object.
 ```
 scAD<-readRDS(file.choose())
