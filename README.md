@@ -15,8 +15,19 @@ First of all, you need to download the "Final_RescueSC.R" file and load all the 
 source("Final_RescueSC.R")
 ```
 RescueSC works with a Seurat object, which contains read counts (nCount_RNA) and number of genes detected (nFeature_RNA) for every cell.
-Therefore, the first step is to create a variable with the Seurat object.
+Therefore, the you need to create a variable with the Seurat object.
 ```
 scAD<-readRDS(file.choose())
 ```
+### RescueTag
+Now, if your experiment did not have multiplexing, skip this part and go directly to RescueCluster.
+The first step that RescueTag does is calculating the most abundant sample tag for every cell (First Best) and the difference between the most abundant and the second most abundant tag (Delta). Based on these parameters the putative tags are assigned to every cell. 
+For this purpose a ScoringTags function is used. As an input it takes:
+1. A path to a table with sample tag read counts for every cell. The table should be in csv format.
+2. Numbers of the first and the last column in the table, which represent the sample tags used for the experiment (x, y)
+3. Numbers of first and the last tags used in the experiment (e.g. if in the experiment were used SampleTag1-SampleTag4, you should write 1,4; and if, for instance, SampleTag6-SampleTag10 were used from the same kit, then the respective numbers will be 6,10) (first_tag_number, last_tag_number)
+4. Seurat object (scAD)
 
+```
+scAD <- ScoringTags(path_to_table, x, y, first_tag_number, last_tag_number, scAD)
+```
