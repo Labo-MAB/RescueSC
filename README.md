@@ -126,14 +126,16 @@ scAD[["percent.mt"]] <- PercentageFeatureSet(scAD, pattern="^mt") #calculate per
 VlnPlot(scAD, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3, pt.size=1)
 ```
 Then we can perform all the steps from the abovementioned Harmony tutorial for normalization, dimensionality reduction and clustering.
+
+NB! If you don't have multiplexing in your experiment, instead of the Final Tags you can use some other variable in group.by.vars parameter in RunHarmony function.
 ```
 merged_seurat <- scAD %>% NormalizeData() %>% FindVariableFeatures(selection.method = "vst", nfeatures = 2000) %>% ScaleData() %>% SCTransform(vars.to.regress = c("percent.mt"))
 merged_seurat <- RunPCA(merged_seurat, assay = "SCT")
 ElbowPlot(merged_seurat)
-unfiltered_seurat <- RunHarmony(merged_seurat, group.by.vars = c("Final_tags"), reduction = "pca", assay.use = "SCT", reduction.save = "harmony", dims.use=1:6) # 6 for Jessica and 9 for Federico
-unfiltered_seurat <- RunUMAP(unfiltered_seurat, reduction = "harmony", assay = "SCT", dims = 1:n) # instead of n insert a number of PCs to use for clustering based on ElbowPlot
-unfiltered_seurat <- FindNeighbors(object = unfiltered_seurat, reduction = "harmony", dims = 1:n) # instead of n insert a number of PCs to use for clustering based on ElbowPlot
-unfiltered_seurat <- FindClusters(unfiltered_seurat, resolution = 0.5)
+unfiltered_seurat <- RunHarmony(merged_seurat, group.by.vars = c("Final_tags"), reduction = "pca", assay.use = "SCT", reduction.save = "harmony", dims.use=1:n) # instead of n insert a number of PCs to use for clustering based on ElbowPlot
+unfiltered_seurat <- RunUMAP(unfiltered_seurat, reduction = "harmony", assay = "SCT", dims = 1:n) 
+unfiltered_seurat <- FindNeighbors(object = unfiltered_seurat, reduction = "harmony", dims = 1:n) 
+unfiltered_seurat <- FindClusters(unfiltered_seurat, resolution = 0.5) # you can change the resolution parameter; the bigger the resolution - the more clusters you will obtain
 ```
 After these procedures you will obtain a Seurat object with clustering information inside it. Now, you can visualize the results of clustering, coloring cells with high MGPC in grey.
 ```
