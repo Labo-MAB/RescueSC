@@ -10,4 +10,10 @@ The pipeline consists of a number of functions and is generally divided into thr
 In this repository you can find an R file called "Dependencies_for_RescueSC.R". Inside this file there are all the necessary libraries which should be installed before using RescueSC. It is also written how to install the packages, which are not in CRAN. Versions of all the packages and the version of R which was used for the RescueSC development are written in the file as well. 
 
 ## Tutorial
+RescueSC works with a Seurat object, which contains read counts (nCount_RNA) and number of genes detected (nFeature_RNA) for every cell.
+Therefore, the first step is to create a variable with the Seurat object.
+```
+scAD<-readRDS(file.choose())
+
+```
 
