@@ -90,7 +90,7 @@ Now it is important to look at the distributions of First Best and Delta to be a
 ```
 RidgeTagQC(scAD)
 ```
-If the distributions are either normal or bimodal, the following functions can be used to set the thresholds.
+If the distributions are either normal or bimodal, the following functions can be used to set the thresholds. The ideas for setting thresholds are the same: either 95% CI for the normal distribution or the EM algorithm for bimodal one.
 ```
 threshold_fb <- FirstBestThreshold(scAD, distribution) # for the distribution write either "normal" or "bimodal"
 threshold_d <- DeltaThreshold(scAD, distribution) # for the distribution write either "normal" or "bimodal"
