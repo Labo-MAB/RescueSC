@@ -55,7 +55,7 @@ FilterLowSeqDepth takes only two parameters as input:
 2. Distribution. It can be either "normal" or "bimodal". The default value is 0.5.
 
 So if the distribution is bimodal and the local minimum between peaks falls around 0.5, you should choose the default value of the "distribution" parameter.
-If the distribution is normal, the function uses 95% confidence interval (CI) for filtering, and in case of bimodal distribution it implement expectation-maximization (EM) algorithm for identifying 2 separate peaks in the distribution (the implementation of the EM algorithm was taken from https://rpubs.com/H_Zhu/246450)
+If the distribution is normal, the function uses 95% confidence interval (CI) for filtering, and in case of bimodal distribution it implement expectation-maximization (EM) algorithm for identifying 2 separate peaks in the distribution (the implementation of the EM algorithm was taken from [https://rpubs.com/H_Zhu/246450](https://rpubs.com/H_Zhu/246450)
 ```
 scAD <- FilterLowSeqDepth(scAD, distribution)
 ```
