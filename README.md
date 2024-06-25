@@ -52,7 +52,7 @@ Now, if your experiment did not have multiplexing, skip this part and go directl
 The first step that RescueTag does is calculating the most abundant sample tag for every cell (First Best) and the difference between the most abundant and the second most abundant tag (Delta). Based on these parameters the putative tags are assigned to every cell. 
 For this purpose a ScoringTags function is used. As an input it takes:
 1. A path to a table with sample tag read counts for every cell. The table should be in csv format.
-2. Numbers of the first and the last column in the table, which represent the sample tags used for the experiment (for example. if a table has 9 columns, and only columns from 4th to 7th have reads of the sample tags, used in the experiment, then the numbers will be 4 and 7). (x, y)
+2. Numbers of the first and the last column in the table, which represent the sample tags used for the experiment (for example, if a table has 9 columns, and only columns from 4th to 7th have reads of the sample tags, used in the experiment, then the numbers will be 4 and 7). (x, y)
 3. Numbers of first and the last tags used in the experiment (e.g. if in the experiment were used SampleTag1-SampleTag4, you should write 1,4) (first_tag_number, last_tag_number)
 4. Seurat object (scAD)
 
