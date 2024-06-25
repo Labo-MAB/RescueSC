@@ -48,3 +48,14 @@ Before performing another quality control filtering step, it is necessary to loo
 df_for_plot<-data.frame('First_best'=scAD$NTD_first_best)
 df_for_plot %>% ggplot(aes(x=First_best))+geom_density(fill="#69b3a2", color="#e9ecef", alpha=0.8)+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank())+expand_limits(x=c(0,1))
 ```
+The filtering of low-quality cells (i.e. low sequencing depth cells) is performed by the FilterLowSeqDepth function and depends on the obtained distribution. 
+
+FilterLowSeqDepth takes only two parameters as input:
+1. Seurat object (scAD)
+2. Distribution. It can be either "normal" or "bimodal". The default value is 0.5.
+
+So if the distribution is bimodal and the local minimum between peaks falls around 0.5, you should choose the default value of the "distribution" parameter. 
+```
+scAD <- FilterLowSeqDepth(scAD, distribution)
+
+```
