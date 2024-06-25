@@ -18,7 +18,7 @@ RescueSC works with a Seurat object, which contains read counts (nCount_RNA) and
 
 NB! RescueSC works with the raw data after aligment. It is important to make sure that no preliminary quality control filtering was performed on the data after the alignment! 
 
-Therefore, the you need to create a variable with the Seurat object.
+Therefore, you need to create a variable with the Seurat object.
 ```
 scAD<-readRDS(file.choose())
 ```
@@ -34,4 +34,17 @@ For this purpose a ScoringTags function is used. As an input it takes:
 
 ```
 scAD <- ScoringTags(path_to_table, x, y, first_tag_number, last_tag_number, scAD)
+```
+After assigning putative tags to the cells the first quality control step can be performed. We filter out cells which contain less than 200 genes detected, and those that had less than 3 reads. 
+```
+scAD <- PreQCFilter(scAD)
+```
+Then we normalize the First Best parameter to the whole sequencing depth (i.e. gene reads + sample tag reads).
+```
+scAD <- NormToDepth(scAD)
+```
+Before performing another quality control filtering step, it is necessary to look at the distribution of the First Best parameter normalized to the whole sequencing depth by running the following lines of code.
+```
+df_for_plot<-data.frame('First_best'=scAD$NTD_first_best)
+df_for_plot %>% ggplot(aes(x=First_best))+geom_density(fill="#69b3a2", color="#e9ecef", alpha=0.8)+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank())+expand_limits(x=c(0,1))
 ```
