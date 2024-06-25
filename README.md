@@ -127,7 +127,7 @@ VlnPlot(scAD, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3
 ```
 Then we can perform all the steps from the abovementioned Harmony tutorial for normalization, dimensionality reduction and clustering.
 
-NB! If you don't have multiplexing in your experiment, instead of the Final Tags you can use some other variable in group.by.vars parameter in RunHarmony function.
+NB! If you don't have multiplexing in your experiment, instead of the Final Tags you can use some other variable in group.by.vars parameter in RunHarmony function (e.g. sample_id, experiment_date etc.).
 ```
 merged_seurat <- scAD %>% NormalizeData() %>% FindVariableFeatures(selection.method = "vst", nfeatures = 2000) %>% ScaleData() %>% SCTransform(vars.to.regress = c("percent.mt"))
 merged_seurat <- RunPCA(merged_seurat, assay = "SCT")
