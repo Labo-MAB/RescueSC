@@ -106,9 +106,20 @@ Then we can perform all the steps from the abovementioned Harmony tutorial for n
 merged_seurat <- scAD %>% NormalizeData() %>% FindVariableFeatures(selection.method = "vst", nfeatures = 2000) %>% ScaleData() %>% SCTransform(vars.to.regress = c("percent.mt"))
 merged_seurat <- RunPCA(merged_seurat, assay = "SCT")
 ElbowPlot(merged_seurat)
-unfiltered_seurat <- RunHarmony(merged_seurat, group.by.vars = c("Sample_Name", 'Sample_Tag'), reduction = "pca", assay.use = "SCT", reduction.save = "harmony", dims.use=1:6) # 6 for Jessica and 9 for Federico
+unfiltered_seurat <- RunHarmony(merged_seurat, group.by.vars = c("Final_tags"), reduction = "pca", assay.use = "SCT", reduction.save = "harmony", dims.use=1:6) # 6 for Jessica and 9 for Federico
 unfiltered_seurat <- RunUMAP(unfiltered_seurat, reduction = "harmony", assay = "SCT", dims = 1:n) # instead of n insert a number of PCs to use for clustering based on ElbowPlot
 unfiltered_seurat <- FindNeighbors(object = unfiltered_seurat, reduction = "harmony", dims = 1:n) # instead of n insert a number of PCs to use for clustering based on ElbowPlot
 unfiltered_seurat <- FindClusters(unfiltered_seurat, resolution = 0.5)
-DimPlot(unfiltered_seurat, reduction = "umap", label = T)
 ```
+After these procedures you will obtain a Seurat object with clustering information inside it. Now, you can visualize the results of clustering, coloring cells with high MGPC in grey.
+```
+RefinedDimPlot(unfiltered_seurat, percent.mt_threshold) # instead of percent.mt_threshold insert a number which will represent the maximum MGPC after which the cells will be considered as having high MGPC level
+```
+You can as well get some information about quality of every cluster by displaying the following plots.
+```
+VlnPlot(unfiltered_seurat, features = 'percent.mt', group.by = 'seurat_clusters') # displays MGPC distribution in every cluster
+VlnPlot(unfiltered_seurat, features = 'nFeature_RNA', group.by = 'seurat_clusters') # displays number of genes per cell distribution in every cluster
+ClusterQC(unfiltered_seurat, "seurat_clusters") # displays the same information in a scatter plot manner
+```
+### AutoClusterType
+
