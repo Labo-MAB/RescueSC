@@ -91,3 +91,8 @@ The following lines of code display a pie chart with the abovementioned informat
 df_undet<-WhyUntagged(scAD, threshold_first_best, threshold_delta)
 PieChart(Label, hole = 0, values = "%", data = df_undet, fill = c("red", "green", "blue"), main = "", values_size = 2, labels_cex = 1.5)
 ```
+### RescueCluster
+The RescueCluster strategy is based on a regular [Seurat clustering](https://satijalab.org/seurat/articles/pbmc3k_tutorial.html) with two major differences:
+1. No filtering of cells with mitochondrial gene percent per cell (MGPC)
+2. Utilization of fuzzy clustering using [Harmony clustering](https://hbctraining.github.io/scRNA-seq_online/lessons/06a_integration_harmony.html)
+
