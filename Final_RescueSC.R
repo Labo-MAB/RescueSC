@@ -116,7 +116,13 @@ FilterLowSeqDepth<-function(scAD, distribution="default"){
       k <- k + 1
       Q[k] <- sum(log(comp.sum))
     }
-    gm<-normalmixEM(x,k=2,lambda=c(round(p2,2),round(p1,2)),mu=c(round(mu2,2),round(mu1,2)),sigma=c(round(sigma2,2),round(sigma1,2)))
+    p<-c(p1,p2)
+    p<-sort(p, decreasing = TRUE)
+    mu<-c(mu1,mu2)
+    mu<-sort(mu, decreasing = TRUE)
+    sg<-c(sigma1.sigma2)
+    sg<-sort(sg, decreasing = TRUE)
+    gm<-normalmixEM(x,k=3,lambda=c(round(p[1],2),round(p[2],2)),mu=c(round(mu[1],2),round(mu[2],2)),sigma=c(round(sg[1],2),round(sg[2],2))
     hist(x, prob=T, breaks=32, xlim=c(range(x)[1], range(x)[2]), main='')
     lines(density(x), col="green", lwd=2)
     x1 <- seq(from=range(x)[1], to=range(x)[2], length.out=1000)
