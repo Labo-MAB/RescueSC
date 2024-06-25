@@ -52,13 +52,42 @@ The filtering of low-quality cells (i.e. low sequencing depth cells) is performe
 
 FilterLowSeqDepth takes only two parameters as input:
 1. Seurat object (scAD)
-2. Distribution. It can be either "normal" or "bimodal". The default value is 0.5.
+2. Distribution. The default value is 0.5.
 
 So if the distribution is bimodal and the local minimum between peaks falls around 0.5, you should choose the default value of the "distribution" parameter.
 If the distribution is normal, the function uses 95% confidence interval (CI) for filtering, and in case of bimodal distribution it implement expectation-maximization (EM) algorithm for identifying 2 separate peaks in the distribution (as a reference for implementing the EM algorithm [this webpage](https://rpubs.com/H_Zhu/246450)  was taken). 
 
 After filtering First Best and Delta are normalized to the sample tag sequencing depth for bringing them to 0-1 scale.
 ```
-scAD <- FilterLowSeqDepth(scAD, distribution)
+scAD <- FilterLowSeqDepth(scAD, distribution) # for the distribution write either "normal" or "bimodal"
 scAD <- NormTagQCParams(scAD)
+```
+Now it is important to look at the distributions of First Best and Delta to be able to select thresholds for condifent sample tag assignment to cells. It can be done with the following line of code.
+```
+RidgeTagQC(scAD)
+```
+If the distributions are either normal or bimodal, the following functions can be used to set the thresholds.
+```
+threshold_fb <- FirstBestThreshold(scAD, distribution) # for the distribution write either "normal" or "bimodal"
+threshold_d <- DeltaThreshold(scAD, distribution) # for the distribution write either "normal" or "bimodal"
+```
+However, if either or both distributions are multimodal (i.e. they have 3 or 4 peaks), the following functions can be used to set the thresholds.
+
+NB! If distributions have 5 or more peaks, they will be considered too noisy to have a possibility to set confident thresholds for tag assignment!
+```
+threshold_fb <- FirstBestMultiMode(scAD, number_of_peaks) # for number of peaks write 3 or 4
+threshold_d <- DeltaMultiMode(scAD, number_of_peaks) # for number of peaks write 3 or 4
+```
+Finally, when the thresholds are set, we can perform the tag assignment to cells.
+```
+scAD<-FinalTagging(scAD, threshold_first_best,threshold_delta) # for the thresholds insert the variables which you obtained in the previous step
+```
+You can also look at the information about untagged cells, namely:
+1. How many cells were untagged
+2. Which were the reasons for cells to be untagged
+
+The following lines of code display a pie chart with the abovementioned information.
+```
+df_undet<-WhyUntagged(scAD, threshold_first_best, threshold_delta)
+PieChart(Label, hole = 0, values = "%", data = df_undet, fill = c("red", "green", "blue"), main = "", values_size = 2, labels_cex = 1.5)
 ```
