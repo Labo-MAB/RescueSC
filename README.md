@@ -137,7 +137,9 @@ unfiltered_seurat <- RunUMAP(unfiltered_seurat, reduction = "harmony", assay = "
 unfiltered_seurat <- FindNeighbors(object = unfiltered_seurat, reduction = "harmony", dims = 1:n) 
 unfiltered_seurat <- FindClusters(unfiltered_seurat, resolution = 0.5) # you can change the resolution parameter; the bigger the resolution - the more clusters you will obtain
 ```
-After these procedures you will obtain a Seurat object with clustering information inside it. Now, you can visualize the results of clustering, coloring cells with high MGPC in grey.
+After these procedures you will obtain a Seurat object with clustering information inside it. Now, you can visualize the results of clustering, coloring cells with high MGPC in grey. 
+
+NB! This function can be applied to the data with maximum 52 clusters!
 ```
 RefinedDimPlot(unfiltered_seurat, percent.mt_threshold) # instead of percent.mt_threshold insert a number which will represent the maximum MGPC after which the cells will be considered as having high MGPC level (e.g. 20, 30, or 35, etc.)
 ```
