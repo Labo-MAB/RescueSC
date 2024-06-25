@@ -57,5 +57,4 @@ FilterLowSeqDepth takes only two parameters as input:
 So if the distribution is bimodal and the local minimum between peaks falls around 0.5, you should choose the default value of the "distribution" parameter. 
 ```
 scAD <- FilterLowSeqDepth(scAD, distribution)
-
 ```
