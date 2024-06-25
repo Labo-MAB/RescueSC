@@ -21,6 +21,7 @@ scAD<-readRDS(file.choose())
 ```
 ### RescueTag
 Now, if your experiment did not have multiplexing, skip this part and go directly to RescueCluster.
+
 The first step that RescueTag does is calculating the most abundant sample tag for every cell (First Best) and the difference between the most abundant and the second most abundant tag (Delta). Based on these parameters the putative tags are assigned to every cell. 
 For this purpose a ScoringTags function is used. As an input it takes:
 1. A path to a table with sample tag read counts for every cell. The table should be in csv format.
