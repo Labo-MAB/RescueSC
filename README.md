@@ -20,7 +20,7 @@ NB! RescueSC works with the raw data after aligment. It is important to make sur
 
 Therefore, you need to create a variable with the Seurat object.
 ```
-scAD<-readRDS(file.choose())
+scAD<-readRDS(file.choose()) #choose the proper RDS file from your file system
 ```
 ### RescueTag
 Now, if your experiment did not have multiplexing, skip this part and go directly to RescueCluster.
