@@ -3,4 +3,5 @@ Single cell RNA sequencing (scRNA-seq) is a revolutionary technology which allow
 1. Demultiplexing
 2. Quality control (QC)
 3. Automating cluster annotation with cell types
+
 The pipeline consists of a number of functions and is generally divided into three parts: RescueTag for demultiplexing; RescueCluster for keeping more biological information during clustering; and AutoClusterType for annotation of clusters with cell types.
