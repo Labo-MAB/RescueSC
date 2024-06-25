@@ -94,5 +94,21 @@ PieChart(Label, hole = 0, values = "%", data = df_undet, fill = c("red", "green"
 ### RescueCluster
 The RescueCluster strategy is based on a regular [Seurat clustering](https://satijalab.org/seurat/articles/pbmc3k_tutorial.html) with two major differences:
 1. No filtering of cells with mitochondrial gene percent per cell (MGPC)
-2. Utilization of fuzzy clustering using [Harmony clustering](https://hbctraining.github.io/scRNA-seq_online/lessons/06a_integration_harmony.html)
+2. Utilization of fuzzy clustering using [Harmony](https://hbctraining.github.io/scRNA-seq_online/lessons/06a_integration_harmony.html)
 
+At first, we need to calculate MGPC and visualize its distribution.
+```
+scAD[["percent.mt"]] <- PercentageFeatureSet(scAD, pattern="^mt") #calculate percent mt
+VlnPlot(scAD, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3, pt.size=1)
+```
+Then we can perform all the steps from the abovementioned Harmony tutorial for normalization, dimensionality reduction and clustering.
+```
+merged_seurat <- scAD %>% NormalizeData() %>% FindVariableFeatures(selection.method = "vst", nfeatures = 2000) %>% ScaleData() %>% SCTransform(vars.to.regress = c("percent.mt"))
+merged_seurat <- RunPCA(merged_seurat, assay = "SCT")
+ElbowPlot(merged_seurat)
+unfiltered_seurat <- RunHarmony(merged_seurat, group.by.vars = c("Sample_Name", 'Sample_Tag'), reduction = "pca", assay.use = "SCT", reduction.save = "harmony", dims.use=1:6) # 6 for Jessica and 9 for Federico
+unfiltered_seurat <- RunUMAP(unfiltered_seurat, reduction = "harmony", assay = "SCT", dims = 1:n) # instead of n insert a number of PCs to use for clustering based on ElbowPlot
+unfiltered_seurat <- FindNeighbors(object = unfiltered_seurat, reduction = "harmony", dims = 1:n) # instead of n insert a number of PCs to use for clustering based on ElbowPlot
+unfiltered_seurat <- FindClusters(unfiltered_seurat, resolution = 0.5)
+DimPlot(unfiltered_seurat, reduction = "umap", label = T)
+```
