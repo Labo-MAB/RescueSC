@@ -9,6 +9,30 @@ The pipeline consists of a number of functions and is generally divided into thr
 ## Dependencies
 In this repository you can find an R file called "Dependencies_for_RescueSC.R". Inside this file there are all the necessary libraries which should be installed before using RescueSC. It is also written how to install the packages, which are not in CRAN. Versions of all the packages and the version of R which was used for the RescueSC development are written in the file as well. 
 
+After installation, load all the libraries into your workspace.
+```
+library(devtools)
+library(remotes)
+library(BiocManager)
+library(dplyr)
+library(Seurat) 
+library(patchwork)
+library(ggplot2)
+library(SingleR) 
+library(celldex) 
+library(RColorBrewer)
+library(SingleCellExperiment) 
+library(scibetR) 
+library(pheatmap)
+library(scMCA) 
+library(DoubletDecon) 
+library(tidyverse) 
+library(harmony) 
+library(scales)
+library(ggridges)
+library(mixtools)
+library(lessR)
+```
 ## Tutorial
 First of all, you need to download the "Final_RescueSC.R" file and load all the functions from it:
 ```
