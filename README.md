@@ -14,6 +14,5 @@ RescueSC works with a Seurat object, which contains read counts (nCount_RNA) and
 Therefore, the first step is to create a variable with the Seurat object.
 ```
 scAD<-readRDS(file.choose())
-
 ```
 
