@@ -56,6 +56,7 @@ For this purpose a ScoringTags function is used. As an input it takes:
 3. Numbers of first and the last tags used in the experiment (e.g. if in the experiment were used SampleTag1-SampleTag4, you should write 1,4) (first_tag_number, last_tag_number)
 4. Seurat object (scAD)
 
+NB! Make sure that the table does not have any additional text or information apart the rows and columns with the sample tag read counts! 
 ```
 scAD <- ScoringTags(path_to_table, x, y, first_tag_number, last_tag_number, scAD)
 ```
