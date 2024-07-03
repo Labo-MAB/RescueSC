@@ -121,7 +121,7 @@ The RescueCluster strategy is based on a regular [Seurat clustering](https://sat
 1. No filtering of cells with mitochondrial gene percent per cell (MGPC)
 2. Utilization of fuzzy clustering by using [Harmony](https://hbctraining.github.io/scRNA-seq_online/lessons/06a_integration_harmony.html)
 
-If you did not use RescueTag, you have to perform first the primary filtering step with a PreQCFilter function.
+If you did not use RescueTag, you have to perform first the primary filtering step with a PreQCFilter function to filter out cells which contain less than 200 genes detected, and those that had less than 3 reads.
 ```
 scAD <- PreQCFilter(scAD)
 ```
