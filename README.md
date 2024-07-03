@@ -128,6 +128,7 @@ scAD <- PreQCFilter(scAD)
 Now, we need to calculate MGPC and visualize its distribution.
 ```
 scAD[["percent.mt"]] <- PercentageFeatureSet(scAD, pattern="^mt") #calculate percent mt
+Idents(scAD) <- "orig.ident"
 VlnPlot(scAD, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3, pt.size=1)
 ```
 Then we can perform all the steps from the abovementioned Harmony tutorial for normalization, dimensionality reduction and clustering.
