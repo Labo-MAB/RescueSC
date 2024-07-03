@@ -121,6 +121,10 @@ The RescueCluster strategy is based on a regular [Seurat clustering](https://sat
 1. No filtering of cells with mitochondrial gene percent per cell (MGPC)
 2. Utilization of fuzzy clustering by using [Harmony](https://hbctraining.github.io/scRNA-seq_online/lessons/06a_integration_harmony.html)
 
+If you din not use RescueTag, you have to perform first the primary filtering step with a PreQCFilter function.
+```
+scAD <- PreQCFilter(scAD)
+```
 At first, we need to calculate MGPC and visualize its distribution.
 ```
 scAD[["percent.mt"]] <- PercentageFeatureSet(scAD, pattern="^mt") #calculate percent mt
