@@ -300,7 +300,7 @@ FirstBestMultiMode<-function(scAD, number_of_peaks){
     p<-sort(p, decreasing = TRUE)
     mu<-c(mu1,mu2,mu3)
     mu<-sort(mu, decreasing = TRUE)
-    sg<-c(sigma1.sigma2.sigma3)
+    sg<-c(sigma1,sigma2,sigma3)
     sg<-sort(sg, decreasing = TRUE)
     gm<-normalmixEM(x,k=3,lambda=c(round(p[1],2),round(p[2],2),round(p[3],3)),mu=c(round(mu[1],2),round(mu[2],2),round(mu[3],2)),sigma=c(round(sg[1],2),round(sg[2],2),round(sg[3],2)))
     
