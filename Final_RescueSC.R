@@ -129,6 +129,7 @@ FilterLowSeqDepth<-function(scAD, distribution="default"){
     y <- pi1 * dnorm(x1, mean=mu1, sd=sigma1) + pi2 * dnorm(x1, mean=mu2, sd=sigma2)
     lines(x1, y, col="red", lwd=2)
     legend('topright', col=c("green", 'red'), lwd=2, legend=c("kernal", "fitted"))
+    print(gm$mu)
     question<-(readline("Which of the above numbers is bigger (1 or 2)?"))
     question<-as.numeric(question)
     if(question==1){
