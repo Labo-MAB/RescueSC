@@ -119,7 +119,7 @@ PieChart(Label, hole = 0, values = "%", data = df_undet, fill = c("red", "green"
 ### RescueCluster
 The RescueCluster strategy is based on a regular [Seurat clustering](https://satijalab.org/seurat/articles/pbmc3k_tutorial.html) with two major differences:
 1. No filtering of cells with mitochondrial gene percent per cell (MGPC)
-2. Utilization of fuzzy clustering by using [Harmony](https://hbctraining.github.io/scRNA-seq_online/lessons/06a_integration_harmony.html)
+2. Utilization of fuzzy clustering by using [Harmony](https://github.com/hbctraining/scRNA-seq_online/blob/master/lessons/06c_integration_harmony.md)
 
 If you did not use RescueTag, you have to perform first the primary filtering step with a PreQCFilter function to filter out cells which contain less than 200 genes detected, and those that had less than 3 reads.
 ```
