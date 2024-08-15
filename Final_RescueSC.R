@@ -711,7 +711,7 @@ DeltaMultiMode<-function(scAD, number_of_peaks){
   }
 }
 
-FinalTagging<-function(scAD,threshold_ratio){
+FinalTagging<-function(scAD,threshold_ratio=0.5){
   if(threshold_ratio > 0.1 & threshold_ratio <= 1){
     final_tags<-scAD$Putative_tags
     future_undetermined<-WhichCells(scAD, expression=Ratio<threshold_ratio)
