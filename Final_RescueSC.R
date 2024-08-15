@@ -711,14 +711,22 @@ DeltaMultiMode<-function(scAD, number_of_peaks){
   }
 }
 
-FinalTagging<-function(scAD,threshold_first_best,threshold_delta){
-  final_tags<-scAD$Putative_tags
-  future_undetermined<-WhichCells(scAD, expression=Postnorm_first_best<threshold_first_best | Postnorm_delta < threshold_delta)
-  for(i in future_undetermined){
-    final_tags[i]<-'Undetermined'
+FinalTagging<-function(scAD,threshold_ratio){
+  if(threshold_ratio > 0.1 & threshold_ratio <= 1){
+    final_tags<-scAD$Putative_tags
+    future_undetermined<-WhichCells(scAD, expression=Ratio<threshold_ratio)
+    for(i in future_undetermined){
+      final_tags[i]<-'Undetermined'
+    }
+    scAD[['Final_tags']]<-final_tags
+    return(scAD)
   }
-  scAD[['Final_tags']]<-final_tags
-  return(scAD)
+  else if (threshold_ratio <= 0.1){
+    stop("Please choose a number between 0.1 (exclusively) and 1")
+  }
+  else{
+    stop("Please choose a number lower or equal to 1")
+  }
 }
 
 WhyUntagged<-function(scAD, threshold_first_best, threshold_delta){
