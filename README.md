@@ -42,39 +42,39 @@ NB! RescueSC works with the raw data after aligment. It is important to make sur
 
 Therefore, you need to create a variable with the Seurat object.
 ```
-scAD<-readRDS(file.choose()) #choose the proper RDS file from your file system
+seurat_obj<-readRDS(file.choose()) #choose the proper RDS file from your file system
 ```
 ### RescueTag
 Now, if your experiment did not have multiplexing, skip this part and go directly to RescueCluster.
 
-The first step that RescueTag does is calculating the most abundant sample tag for every cell (First Best) and the difference between the most abundant and the second most abundant tag (Delta). Based on these parameters the putative tags are assigned to every cell. 
+The first step that RescueTag does is calculating the most abundant sample tag for every cell (Best) and the difference between the most abundant and the second most abundant tag (Delta). Then the ratio Delta/Best is calculated and based on this parameter the putative tags are assigned to every cell. 
 For this purpose a ScoringTags function is used. As an input it takes:
 1. A path to a table with sample tag read counts for every cell. The table should be in csv format.
 2. Numbers of the first and the last column in the table, which represent the sample tags used for the experiment (for example, if a table has 9 columns, and only columns from 4th to 7th have reads of the sample tags, used in the experiment, then the numbers will be 4 and 7). (x, y)
 3. Numbers of first and the last tags used in the experiment (e.g. if in the experiment were used SampleTag1-SampleTag4, you should write 1,4) (first_tag_number, last_tag_number)
-4. Seurat object (scAD)
+4. Seurat object (seurat_obj)
 
 NB! Make sure that the table does not have any additional text or information apart from the rows and columns with the sample tag read counts! 
 ```
-scAD <- ScoringTags(path_to_table, x, y, first_tag_number, last_tag_number, scAD)
+seurat_obj <- ScoringTags(path_to_table, x, y, first_tag_number, last_tag_number, seurat_obj)
 ```
 After assigning putative tags to the cells the first quality control step can be performed. We filter out cells which contain less than 200 genes detected, and those that had less than 3 reads. 
 ```
-scAD <- PreQCFilter(scAD)
+seurat_obj <- PreQCFilter(seurat_obj)
 ```
 Then we normalize the First Best parameter to the whole sequencing depth (i.e. gene reads + sample tag reads).
 ```
-scAD <- NormToDepth(scAD)
+seurat_obj <- NormToDepth(seurat_obj)
 ```
 Before performing another quality control filtering step, it is necessary to look at the distribution of the First Best parameter normalized to the whole sequencing depth by running the following lines of code.
 ```
-df_for_plot<-data.frame('First_best'=scAD$NTD_first_best)
+df_for_plot<-data.frame('First_best'=seurat_obj$NTD_first_best)
 df_for_plot %>% ggplot(aes(x=First_best))+geom_density(fill="#69b3a2", color="#e9ecef", alpha=0.8)+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank())+expand_limits(x=c(0,1))
 ```
 The filtering of low-quality cells (i.e. low sequencing depth cells) is performed by the FilterLowSeqDepth function and depends on the obtained distribution. 
 
 FilterLowSeqDepth takes only two parameters as input:
-1. Seurat object (scAD)
+1. Seurat object (seurat_obj)
 2. Distribution. The default value is 0.5.
 
 So if the distribution is bimodal and the local minimum between peaks falls around 0.5, you should go with the default value of the "distribution" parameter.
@@ -82,38 +82,15 @@ If the distribution is normal, the function uses 95% confidence interval (CI) fo
 
 After filtering First Best and Delta are normalized to the sample tag sequencing depth for bringing them to 0-1 scale.
 ```
-scAD <- FilterLowSeqDepth(scAD, distribution) # for the distribution write either "normal" or "bimodal"
-scAD <- NormTagQCParams(scAD)
+seurat_obj <- FilterLowSeqDepth(seurat_obj, distribution) # for the distribution write either "normal" or "bimodal"
+seurat_obj <- NormTagQCParams(seurat_obj)
 ```
-Now it is important to look at the distributions of First Best and Delta to be able to select thresholds for condifent sample tag assignment to cells. It can be done with the following line of code.
-```
-RidgeTagQC(scAD)
-```
-If the distributions are either normal or bimodal, the following functions can be used to set the thresholds. The ideas for setting thresholds are the same: either 95% CI for the normal distribution or the EM algorithm for bimodal one.
-```
-threshold_fb <- FirstBestThreshold(scAD, distribution) # for the distribution write either "normal" or "bimodal"
-threshold_d <- DeltaThreshold(scAD, distribution) # for the distribution write either "normal" or "bimodal"
-```
-However, if either or both distributions are multimodal (i.e. they have 3 or 4 peaks), the following functions can be used to set the thresholds.
+Now the Ratio parameter can be calculated, a threshold for tagging can be set and the tags can be assigned to cells. For this, the user needs to run the FinalTagging function, which takes the Seurat object and the Ratio threshold as an input. The default value is 0.5, meaning that we require that the difference between Best and Second Best is at least half of the Best. The user can set up custom thresholds as well. NB! The custom threshold cannot be equal to or lower than 0.1!
 
-NB! If distributions have 5 or more peaks, they will be considered too noisy to have a possibility to set confident thresholds for tag assignment!
 ```
-threshold_fb <- FirstBestMultiMode(scAD, number_of_peaks) # for number of peaks write 3 or 4
-threshold_d <- DeltaMultiMode(scAD, number_of_peaks) # for number of peaks write 3 or 4
+seurat_obj<-FinalTagging(seurat_obj, threshold_ratio) # for the thresholds insert the variables which you obtained in the previous step
 ```
-Finally, when the thresholds are set, we can perform the tag assignment to cells.
-```
-scAD<-FinalTagging(scAD, threshold_first_best,threshold_delta) # for the thresholds insert the variables which you obtained in the previous step
-```
-You can also look at the information about untagged cells, namely:
-1. How many cells were untagged
-2. Which were the reasons for cells to be untagged
 
-The following lines of code display a pie chart with the abovementioned information.
-```
-df_undet<-WhyUntagged(scAD, threshold_first_best, threshold_delta)
-PieChart(Label, hole = 0, values = "%", data = df_undet, fill = c("red", "green", "blue"), main = "", values_size = 2, labels_cex = 1.5)
-```
 ### RescueCluster
 The RescueCluster strategy is based on a regular [Seurat clustering](https://satijalab.org/seurat/articles/pbmc3k_tutorial.html) with two major differences:
 1. No filtering of cells with mitochondrial gene percent per cell (MGPC)
@@ -121,19 +98,19 @@ The RescueCluster strategy is based on a regular [Seurat clustering](https://sat
 
 If you did not use RescueTag, you have to perform first the primary filtering step with a PreQCFilter function to filter out cells which contain less than 200 genes detected, and those that had less than 3 reads.
 ```
-scAD <- PreQCFilter(scAD)
+seurat_obj <- PreQCFilter(seurat_obj)
 ```
 Now, we need to calculate MGPC and visualize its distribution.
 ```
-scAD[["percent.mt"]] <- PercentageFeatureSet(scAD, pattern="^mt") #calculate percent mt
-Idents(scAD) <- "orig.ident"
-VlnPlot(scAD, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3, pt.size=1)
+seurat_obj[["percent.mt"]] <- PercentageFeatureSet(seurat_obj, pattern="^mt") #calculate percent mt
+Idents(seurat_obj) <- "orig.ident"
+VlnPlot(seurat_obj, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3, pt.size=1)
 ```
 Then we can perform all the steps from the abovementioned Harmony tutorial for normalization, dimensionality reduction and clustering.
 
-NB! If you don't have multiplexing in your experiment, instead of the Final Tags you can use some other variable in group.by.vars parameter in RunHarmony function (e.g. sample_id, experiment_date etc.).
+NB! If you don't have multiplexing in your experiment, use the RunHarmony function only if you integrate different samples into one Seurat object. In such case, put the Sample ID variable into group.by.vars argument. However, if the Seurat object contains only one sample, then SCTransform normalization will reduce technical batch effects, and RunHarmony should not be run. 
 ```
-merged_seurat <- scAD %>% NormalizeData() %>% FindVariableFeatures(selection.method = "vst", nfeatures = 2000) %>% ScaleData() %>% SCTransform(vars.to.regress = c("percent.mt"))
+merged_seurat <- seurat_obj %>% NormalizeData() %>% FindVariableFeatures(selection.method = "vst", nfeatures = 2000) %>% ScaleData() %>% SCTransform(vars.to.regress = c("percent.mt"))
 merged_seurat <- RunPCA(merged_seurat, assay = "SCT")
 ElbowPlot(merged_seurat)
 unfiltered_seurat <- RunHarmony(merged_seurat, group.by.vars = c("Final_tags"), reduction = "pca", assay.use = "SCT", reduction.save = "harmony", dims.use=1:n) # instead of n insert a number of PCs to use for clustering based on ElbowPlot
