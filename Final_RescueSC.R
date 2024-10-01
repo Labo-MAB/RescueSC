@@ -5,18 +5,18 @@
 ##                                                     ##
 #########################################################
 
-ScoringTags<-function(path_to_table, x, y, first_tag_number, last_tag_number, scAD){
+ScoringTags<-function(path_to_table, x, y, first_tag_number, last_tag_number, seurat_obj){
   sample_tag_table<-read.csv(path_to_table, row.names = 1)
   sample_tag_table<-sample_tag_table[,x:y]
   nCount_Tag<-rowSums(sample_tag_table)
-  scAD[["nCount_Tag"]]<-nCount_Tag
+  seurat_obj[["nCount_Tag"]]<-nCount_Tag
   tags<-colnames(sample_tag_table)
   for(i in 1:length(tags)){
     assign(paste(tags[i]), sample_tag_table[,i])
   }
   for(i in 1:length(tags)){
     obj<-get(paste(tags[i]))
-    scAD[[paste(tags[i])]]<-obj
+    seurat_obj[[paste(tags[i])]]<-obj
   }
   df<-data.frame(matrix(,nrow=nrow(sample_tag_table),ncol=0))
   for(i in 1:length(tags)){
@@ -36,44 +36,44 @@ ScoringTags<-function(path_to_table, x, y, first_tag_number, last_tag_number, sc
     delta<-c(delta, x[1]-x[2])
   }
   final_df<-data.frame('First_best'=first_best, 'Second_best'=second_best, 'Delta'=delta)
-  scAD[['First_best_tag']]<-final_df$First_best
-  scAD[['Delta']]<-final_df$Delta
+  seurat_obj[['First_best_tag']]<-final_df$First_best
+  seurat_obj[['Delta']]<-final_df$Delta
   df$putative_tags<-colnames(df)[apply(df,1,which.max)]
-  scAD[['Putative_tags']]<-df$putative_tags
+  seurat_obj[['Putative_tags']]<-df$putative_tags
   for(i in 1:length(tags)){
-    scAD[[paste(tags[i])]]<-c()
+    seurat_obj[[paste(tags[i])]]<-c()
   }
-  return(scAD)
+  return(seurat_obj)
 }
 
 
-NormToDepth<-function(scAD){
-  all_reads<-scAD$nCount_Tag+scAD$nCount_RNA
-  scAD[['NTD_first_best']]<-scAD$First_best_tag/all_reads
-  return(scAD)
+NormToDepth<-function(seurat_obj){
+  all_reads<-seurat_obj$nCount_Tag+seurat_obj$nCount_RNA
+  seurat_obj[['NTD_first_best']]<-seurat_obj$First_best_tag/all_reads
+  return(seurat_obj)
 }
 
-PreQCFilter<-function(scAD){
-  selected_c <- WhichCells(scAD, expression = nFeature_RNA > 200)
-  selected_f <- rownames(scAD)[Matrix::rowSums(scAD) > 3]
-  scAD <- subset(scAD, features = selected_f, cells = selected_c)
-  return(scAD)
+PreQCFilter<-function(seurat_obj){
+  selected_c <- WhichCells(seurat_obj, expression = nFeature_RNA > 200)
+  selected_f <- rownames(seurat_obj)[Matrix::rowSums(seurat_obj) > 3]
+  seurat_obj <- subset(seurat_obj, features = selected_f, cells = selected_c)
+  return(seurat_obj)
 }
 
-FilterLowSeqDepth<-function(scAD, distribution="default"){
+FilterLowSeqDepth<-function(seurat_obj, distribution="default"){
   if (distribution == "default"){
-    scAD<-subset(scAD, subset=NTD_first_best<0.5)
-    return(scAD)
+    seurat_obj<-subset(seurat_obj, subset=NTD_first_best<0.5)
+    return(seurat_obj)
   }
   else if (distribution == "normal"){
-    x<-scAD$NTD_first_best
+    x<-seurat_obj$NTD_first_best
     threshold_for_NTD<-round(mean(x)+2*sd(x),2)
-    scAD<-subset(scAD, subset=NTD_first_best<threshold_for_NTD)
-    return(scAD)
+    seurat_obj<-subset(seurat_obj, subset=NTD_first_best<threshold_for_NTD)
+    return(seurat_obj)
   }
   else if (distribution == "bimodal"){
     # The function was taken from https://rpubs.com/H_Zhu/246450
-    x<-scAD$NTD_first_best
+    x<-seurat_obj$NTD_first_best
     mem <- kmeans(x,2)$cluster
     mu1 <- mean(x[mem==1])
     mu2 <- mean(x[mem==2])
@@ -134,592 +134,42 @@ FilterLowSeqDepth<-function(scAD, distribution="default"){
     question<-as.numeric(question)
     if(question==1){
       threshold_for_NTD<-round(gm$mu[1]-2*gm$sigma[1], 2)
-      scAD<-subset(scAD, subset=NTD_first_best<threshold_for_NTD)
-      return(scAD)
+      seurat_obj<-subset(seurat_obj, subset=NTD_first_best<threshold_for_NTD)
+      return(seurat_obj)
     }
     else if(question==2){
       threshold_for_NTD<-round(gm$mu[2]-2*gm$sigma[2], 2)
-      scAD<-subset(scAD, subset=NTD_first_best<threshold_for_NTD)
-      return(scAD)
+      seurat_obj<-subset(seurat_obj, subset=NTD_first_best<threshold_for_NTD)
+      return(seurat_obj)
     }
   }
 }
 
-NormTagQCParams<-function(scAD){
-  scAD[['Postnorm_first_best']]<-scAD$First_best_tag/(scAD$nCount_Tag)
-  scAD[['Postnorm_delta']]<-scAD$Delta/(scAD$nCount_Tag)
-  return(scAD)
+NormTagQCParams<-function(seurat_obj){
+  seurat_obj[['Postnorm_first_best']]<-seurat_obj$First_best_tag/(seurat_obj$nCount_Tag)
+  seurat_obj[['Postnorm_delta']]<-seurat_obj$Delta/(seurat_obj$nCount_Tag)
+  seurat_obj[['Ratio']]<-seurat_obj$Postnorm_delta/seurat_obj$Postnorm_first_best
+  return(seurat_obj)
 }
 
-RidgeTagQC<-function(scAD){
-  x<-c(scAD$Postnorm_first_best)
-  x<-c(x, scAD$Postnorm_delta)
-  y<-c(rep('First_best', length(scAD$Postnorm_first_best)))
-  y<-c(y, rep('Delta', length(scAD$Postnorm_first_best)))
+RidgeTagQC<-function(seurat_obj){
+  x<-c(seurat_obj$Postnorm_first_best)
+  x<-c(x, seurat_obj$Postnorm_delta)
+  y<-c(rep('First_best', length(seurat_obj$Postnorm_first_best)))
+  y<-c(y, rep('Delta', length(seurat_obj$Postnorm_first_best)))
   df<-data.frame('Normalized_values'=x, 'Categories'=y)
   ggplot(df, aes(x=Normalized_values, y=Categories, fill=Categories))+geom_density_ridges(scale=1)+theme_ridges(font_size = 19)+theme(legend.position = "none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank())
 }
 
-FirstBestThreshold<-function(scAD, distribution){
-  first_best<-scAD$Postnorm_first_best
-  if(distribution == "normal"){
-    threshold_first_best<-mean(first_best)-2*sd(first_best)
-    return(threshold_first_best)
-  }
-  else if (distribution == "bimodal"){
-    x<-scAD$Postnorm_first_best
-    mem <- kmeans(x,2)$cluster
-    mu1 <- mean(x[mem==1])
-    mu2 <- mean(x[mem==2])
-    sigma1 <- sd(x[mem==1])
-    sigma2 <- sd(x[mem==2])
-    pi1 <- sum(mem==1)/length(mem)
-    pi2 <- sum(mem==2)/length(mem)
-    
-    sum.finite <- function(x) {
-      sum(x[is.finite(x)])
-    }
-    
-    Q <- 0
-    # starting value of expected value of the log likelihood
-    Q[2] <- sum.finite(log(pi1)+log(dnorm(x, mu1, sigma1))) + sum.finite(log(pi2)+log(dnorm(x, mu2, sigma2)))
-    
-    k <- 2
-    
-    while (abs(Q[k]-Q[k-1])>=1e-6) {
-      # E step
-      comp1 <- pi1 * dnorm(x, mu1, sigma1)
-      comp2 <- pi2 * dnorm(x, mu2, sigma2)
-      comp.sum <- comp1 + comp2
-      
-      p1 <- comp1/comp.sum
-      p2 <- comp2/comp.sum
-      
-      # M step
-      pi1 <- sum.finite(p1) / length(x)
-      pi2 <- sum.finite(p2) / length(x)
-      
-      mu1 <- sum.finite(p1 * x) / sum.finite(p1)
-      mu2 <- sum.finite(p2 * x) / sum.finite(p2)
-      
-      sigma1 <- sqrt(sum.finite(p1 * (x-mu1)^2) / sum.finite(p1))
-      sigma2 <- sqrt(sum.finite(p2 * (x-mu2)^2) / sum.finite(p2))
-      
-      p1 <- pi1 
-      p2 <- pi2
-      
-      k <- k + 1
-      Q[k] <- sum(log(comp.sum))
-    }
-    p<-c(p1,p2)
-    p<-sort(p, decreasing = TRUE)
-    mu<-c(mu1,mu2)
-    mu<-sort(mu, decreasing = TRUE)
-    sg<-c(sigma1,sigma2)
-    sg<-sort(sg, decreasing = TRUE)
-    gm<-normalmixEM(x,k=2,lambda=c(round(p[1],2),round(p[2],2)),mu=c(round(mu[1],2),round(mu[2],2)),sigma=c(round(sg[1],2),round(sg[2],2)))
-    
-    hist(x, prob=T, breaks=32, xlim=c(range(x)[1], range(x)[2]), main='')
-    lines(density(x), col="green", lwd=2)
-    x1 <- seq(from=range(x)[1], to=range(x)[2], length.out=1000)
-    y <- pi1 * dnorm(x1, mean=mu1, sd=sigma1) + pi2 * dnorm(x1, mean=mu2, sd=sigma2)
-    lines(x1, y, col="red", lwd=2)
-    legend('topright', col=c("green", 'red'), lwd=2, legend=c("kernal", "fitted"))
-    print(gm$mu)
-    question<-(readline("Which of the above numbers is lower (1 or 2)?"))
-    question<-as.numeric(question)
-    if(question==1){
-      threshold_first_best<-round(gm$mu[1]+2*gm$sigma[1], 2)
-      return(threshold_first_best)
-    }
-    else if(question==2){
-      threshold_first_best<-round(gm$mu[2]+2*gm$sigma[2], 2)
-      return(threshold_first_best)
-    }
-  }
-  else{
-    stop("invalid distribution for this function")
-  }
-}
-
-FirstBestMultiMode<-function(scAD, number_of_peaks){
-  if(number_of_peaks == 3){
-    x<-scAD$Postnorm_first_best
-    mem <- kmeans(x,3)$cluster
-    mu1 <- mean(x[mem==1])
-    mu2 <- mean(x[mem==2])
-    mu3 <- mean(x[mem==3])
-    sigma1 <- sd(x[mem==1])
-    sigma2 <- sd(x[mem==2])
-    sigma3 <- sd(x[mem==3])
-    pi1 <- sum(mem==1)/length(mem)
-    pi2 <- sum(mem==2)/length(mem)
-    pi3 <- sum(mem==3)/length(mem)
-    
-    sum.finite <- function(x) {
-      sum(x[is.finite(x)])
-    }
-    
-    Q <- 0
-    # starting value of expected value of the log likelihood
-    Q[2] <- sum.finite(log(pi1)+log(dnorm(x, mu1, sigma1))) + sum.finite(log(pi2)+log(dnorm(x, mu2, sigma2))) + sum.finite(log(pi3)+log(dnorm(x, mu3, sigma3)))
-    
-    k <- 2
-    
-    while (abs(Q[k]-Q[k-1])>=1e-6) {
-      # E step
-      comp1 <- pi1 * dnorm(x, mu1, sigma1)
-      comp2 <- pi2 * dnorm(x, mu2, sigma2)
-      comp3 <- pi3 * dnorm(x, mu3, sigma3)
-      comp.sum <- comp1 + comp2 + comp3
-      
-      p1 <- comp1/comp.sum
-      p2 <- comp2/comp.sum
-      p3 <- comp3/comp.sum
-      
-      # M step
-      pi1 <- sum.finite(p1) / length(x)
-      pi2 <- sum.finite(p2) / length(x)
-      pi3 <- sum.finite(p3) / length(x)
-      
-      mu1 <- sum.finite(p1 * x) / sum.finite(p1)
-      mu2 <- sum.finite(p2 * x) / sum.finite(p2)
-      mu3 <- sum.finite(p3 * x) / sum.finite(p3)
-      
-      sigma1 <- sqrt(sum.finite(p1 * (x-mu1)^2) / sum.finite(p1))
-      sigma2 <- sqrt(sum.finite(p2 * (x-mu2)^2) / sum.finite(p2))
-      sigma3 <- sqrt(sum.finite(p3 * (x-mu3)^2) / sum.finite(p3))
-      
-      p1 <- pi1 
-      p2 <- pi2
-      p3 <- pi3
-      
-      k <- k + 1
-      Q[k] <- sum(log(comp.sum))
-    }
-    p<-c(p1,p2,p3)
-    p<-sort(p, decreasing = TRUE)
-    mu<-c(mu1,mu2,mu3)
-    mu<-sort(mu, decreasing = TRUE)
-    sg<-c(sigma1,sigma2,sigma3)
-    sg<-sort(sg, decreasing = TRUE)
-    gm<-normalmixEM(x,k=3,lambda=c(round(p[1],2),round(p[2],2),round(p[3],3)),mu=c(round(mu[1],2),round(mu[2],2),round(mu[3],2)),sigma=c(round(sg[1],2),round(sg[2],2),round(sg[3],2)))
-    
-    hist(x, prob=T, breaks=32, xlim=c(range(x)[1], range(x)[2]), main='')
-    lines(density(x), col="green", lwd=2)
-    x1 <- seq(from=range(x)[1], to=range(x)[2], length.out=1000)
-    y <- pi1 * dnorm(x1, mean=mu1, sd=sigma1) + pi2 * dnorm(x1, mean=mu2, sd=sigma2) + pi3 * dnorm(x1, mean=mu3, sd=sigma3)
-    lines(x1, y, col="red", lwd=2)
-    legend('topright', col=c("green", 'red'), lwd=2, legend=c("kernal", "fitted"))
-    print(gm$mu)
-    question<-(readline("Choose a number which lies on x-axis closest to the rightmost peak that will mark untagged cells (1,2 or 3)"))
-    question<-as.numeric(question)
-    if(question==1){
-      threshold_first_best<-round(gm$mu[1]+2*gm$sigma[1], 2)
-      return(threshold_first_best)
-    }
-    else if(question==2){
-      threshold_first_best<-round(gm$mu[2]+2*gm$sigma[2], 2)
-      return(threshold_first_best)
-    }
-    else if (question==3){
-      threshold_first_best<-round(gm$mu[3]+2*gm$sigma[3], 2)
-      return(threshold_first_best)
-    }
-    else{
-      stop("Please choose a number from 1 to 3")
-    }
-  }
-  else if (number_of_peaks == 4){
-    x<-scAD$Postnorm_first_best
-    mem <- kmeans(x,4)$cluster
-    mu1 <- mean(x[mem==1])
-    mu2 <- mean(x[mem==2])
-    mu3 <- mean(x[mem==3])
-    mu4 <- mean(x[mem==4])
-    sigma1 <- sd(x[mem==1])
-    sigma2 <- sd(x[mem==2])
-    sigma3 <- sd(x[mem==3])
-    sigma4 <- sd(x[mem==4])
-    pi1 <- sum(mem==1)/length(mem)
-    pi2 <- sum(mem==2)/length(mem)
-    pi3 <- sum(mem==3)/length(mem)
-    pi4 <- sum(mem==4)/length(mem)
-    
-    sum.finite <- function(x) {
-      sum(x[is.finite(x)])
-    }
-    
-    Q <- 0
-    # starting value of expected value of the log likelihood
-    Q[2] <- sum.finite(log(pi1)+log(dnorm(x, mu1, sigma1))) + sum.finite(log(pi2)+log(dnorm(x, mu2, sigma2))) + sum.finite(log(pi3)+log(dnorm(x, mu3, sigma3))) + sum.finite(log(pi4)+log(dnorm(x, mu4, sigma4)))
-    
-    k <- 2
-    
-    while (abs(Q[k]-Q[k-1])>=1e-6) {
-      # E step
-      comp1 <- pi1 * dnorm(x, mu1, sigma1)
-      comp2 <- pi2 * dnorm(x, mu2, sigma2)
-      comp3 <- pi3 * dnorm(x, mu3, sigma3)
-      comp4 <- pi4 * dnorm(x, mu4, sigma4)
-      comp.sum <- comp1 + comp2 + comp3 + comp4
-      
-      p1 <- comp1/comp.sum
-      p2 <- comp2/comp.sum
-      p3 <- comp3/comp.sum
-      p4 <- comp4/comp.sum
-      
-      # M step
-      pi1 <- sum.finite(p1) / length(x)
-      pi2 <- sum.finite(p2) / length(x)
-      pi3 <- sum.finite(p3) / length(x)
-      pi4 <- sum.finite(p4) / length(x)
-      
-      mu1 <- sum.finite(p1 * x) / sum.finite(p1)
-      mu2 <- sum.finite(p2 * x) / sum.finite(p2)
-      mu3 <- sum.finite(p3 * x) / sum.finite(p3)
-      mu4 <- sum.finite(p4 * x) / sum.finite(p4)
-      
-      sigma1 <- sqrt(sum.finite(p1 * (x-mu1)^2) / sum.finite(p1))
-      sigma2 <- sqrt(sum.finite(p2 * (x-mu2)^2) / sum.finite(p2))
-      sigma3 <- sqrt(sum.finite(p3 * (x-mu3)^2) / sum.finite(p3))
-      sigma4 <- sqrt(sum.finite(p4 * (x-mu4)^2) / sum.finite(p4))
-      
-      p1 <- pi1 
-      p2 <- pi2
-      p3 <- pi3
-      p4 <- pi4
-      
-      k <- k + 1
-      Q[k] <- sum(log(comp.sum))
-    }
-    p<-c(p1,p2,p3, p4)
-    p<-sort(p, decreasing = TRUE)
-    mu<-c(mu1,mu2,mu3, mu4)
-    mu<-sort(mu, decreasing = TRUE)
-    sg<-c(sigma1,sigma2.sigma3, sigma4)
-    sg<-sort(sg, decreasing = TRUE)
-    gm<-normalmixEM(x,k=3,lambda=c(round(p[1],2),round(p[2],2),round(p[3],3), round(p[4],2)),mu=c(round(mu[1],2),round(mu[2],2),round(mu[3],2), round(mu[4],2)),sigma=c(round(sg[1],2),round(sg[2],2),round(sg[3],2), round(sg[4],2)))
-    
-    hist(x, prob=T, breaks=32, xlim=c(range(x)[1], range(x)[2]), main='')
-    lines(density(x), col="green", lwd=2)
-    x1 <- seq(from=range(x)[1], to=range(x)[2], length.out=1000)
-    y <- pi1 * dnorm(x1, mean=mu1, sd=sigma1) + pi2 * dnorm(x1, mean=mu2, sd=sigma2) + pi3 * dnorm(x1, mean=mu3, sd=sigma3) + pi4 * dnorm(x1, mean=mu4, sd=sigma4)
-    lines(x1, y, col="red", lwd=2)
-    legend('topright', col=c("green", 'red'), lwd=2, legend=c("kernal", "fitted"))
-    print(gm$mu)
-    question<-(readline("Choose a number which lies on x-axis closest to the rightmost peak that will mark untagged cells (1,2 or 3)"))
-    question<-as.numeric(question)
-    if(question==1){
-      threshold_first_best<-round(gm$mu[1]+2*gm$sigma[1], 2)
-      return(threshold_first_best)
-    }
-    else if(question==2){
-      threshold_first_best<-round(gm$mu[2]+2*gm$sigma[2], 2)
-      return(threshold_first_best)
-    }
-    else if (question==3){
-      threshold_first_best<-round(gm$mu[3]+2*gm$sigma[3], 2)
-      return(threshold_first_best)
-    }
-    else if (question==4){
-      threshold_first_best<-round(gm$mu[4]+2*gm$sigma[4], 2)
-      return(threshold_first_best)
-    }
-    else{
-      stop("Please choose a number from 1 to 4")
-    }
-  }
-  else{
-    stop("For bimodal distribution use FirstBestThreshold; otherwise the dataset is too noisy to select a confident threshold")
-  }
-}
-
-
-DeltaThreshold<-function(scAD, distribution){
-  delta<-scAD$Postnorm_delta
-  if(distribution == "normal"){
-    threshold_delta<-mean(delta)-2*sd(delta)
-    return(threshold_delta)
-  }
-  else if (distribution == "bimodal"){
-    x<-scAD$Postnorm_delta
-    mem <- kmeans(x,2)$cluster
-    mu1 <- mean(x[mem==1])
-    mu2 <- mean(x[mem==2])
-    sigma1 <- sd(x[mem==1])
-    sigma2 <- sd(x[mem==2])
-    pi1 <- sum(mem==1)/length(mem)
-    pi2 <- sum(mem==2)/length(mem)
-    
-    sum.finite <- function(x) {
-      sum(x[is.finite(x)])
-    }
-    
-    Q <- 0
-    # starting value of expected value of the log likelihood
-    Q[2] <- sum.finite(log(pi1)+log(dnorm(x, mu1, sigma1))) + sum.finite(log(pi2)+log(dnorm(x, mu2, sigma2)))
-    
-    k <- 2
-    
-    while (abs(Q[k]-Q[k-1])>=1e-6) {
-      # E step
-      comp1 <- pi1 * dnorm(x, mu1, sigma1)
-      comp2 <- pi2 * dnorm(x, mu2, sigma2)
-      comp.sum <- comp1 + comp2
-      
-      p1 <- comp1/comp.sum
-      p2 <- comp2/comp.sum
-      
-      # M step
-      pi1 <- sum.finite(p1) / length(x)
-      pi2 <- sum.finite(p2) / length(x)
-      
-      mu1 <- sum.finite(p1 * x) / sum.finite(p1)
-      mu2 <- sum.finite(p2 * x) / sum.finite(p2)
-      
-      sigma1 <- sqrt(sum.finite(p1 * (x-mu1)^2) / sum.finite(p1))
-      sigma2 <- sqrt(sum.finite(p2 * (x-mu2)^2) / sum.finite(p2))
-      
-      p1 <- pi1 
-      p2 <- pi2
-      
-      k <- k + 1
-      Q[k] <- sum(log(comp.sum))
-    }
-    p<-c(p1,p2)
-    p<-sort(p, decreasing = TRUE)
-    mu<-c(mu1,mu2)
-    mu<-sort(mu, decreasing = TRUE)
-    sg<-c(sigma1,sigma2)
-    sg<-sort(sg, decreasing = TRUE)
-    gm<-normalmixEM(x,k=2,lambda=c(round(p[1],2),round(p[2],2)),mu=c(round(mu[1],2),round(mu[2],2)),sigma=c(round(sg[1],2),round(sg[2],2)))
-    
-    hist(x, prob=T, breaks=32, xlim=c(range(x)[1], range(x)[2]), main='')
-    lines(density(x), col="green", lwd=2)
-    x1 <- seq(from=range(x)[1], to=range(x)[2], length.out=1000)
-    y <- pi1 * dnorm(x1, mean=mu1, sd=sigma1) + pi2 * dnorm(x1, mean=mu2, sd=sigma2)
-    lines(x1, y, col="red", lwd=2)
-    legend('topright', col=c("green", 'red'), lwd=2, legend=c("kernal", "fitted"))
-    print(gm$mu)
-    question<-(readline("Which of the above numbers is lower (1 or 2)?"))
-    question<-as.numeric(question)
-    if(question==1){
-      threshold_delta<-round(gm$mu[1]+2*gm$sigma[1], 2)
-      return(threshold_delta)
-    }
-    else if(question==2){
-      threshold_delta<-round(gm$mu[2]+2*gm$sigma[2], 2)
-      return(threshold_delta)
-    }
-  }
-  else{
-    stop("invalid distribution for this function")
-  }
-}
-
-DeltaMultiMode<-function(scAD, number_of_peaks){
-  if(number_of_peaks == 3){
-    x<-scAD$Postnorm_delta
-    mem <- kmeans(x,3)$cluster
-    mu1 <- mean(x[mem==1])
-    mu2 <- mean(x[mem==2])
-    mu3 <- mean(x[mem==3])
-    sigma1 <- sd(x[mem==1])
-    sigma2 <- sd(x[mem==2])
-    sigma3 <- sd(x[mem==3])
-    pi1 <- sum(mem==1)/length(mem)
-    pi2 <- sum(mem==2)/length(mem)
-    pi3 <- sum(mem==3)/length(mem)
-    
-    sum.finite <- function(x) {
-      sum(x[is.finite(x)])
-    }
-    
-    Q <- 0
-    # starting value of expected value of the log likelihood
-    Q[2] <- sum.finite(log(pi1)+log(dnorm(x, mu1, sigma1))) + sum.finite(log(pi2)+log(dnorm(x, mu2, sigma2))) + sum.finite(log(pi3)+log(dnorm(x, mu3, sigma3)))
-    
-    k <- 2
-    
-    while (abs(Q[k]-Q[k-1])>=1e-6) {
-      # E step
-      comp1 <- pi1 * dnorm(x, mu1, sigma1)
-      comp2 <- pi2 * dnorm(x, mu2, sigma2)
-      comp3 <- pi3 * dnorm(x, mu3, sigma3)
-      comp.sum <- comp1 + comp2 + comp3
-      
-      p1 <- comp1/comp.sum
-      p2 <- comp2/comp.sum
-      p3 <- comp3/comp.sum
-      
-      # M step
-      pi1 <- sum.finite(p1) / length(x)
-      pi2 <- sum.finite(p2) / length(x)
-      pi3 <- sum.finite(p3) / length(x)
-      
-      mu1 <- sum.finite(p1 * x) / sum.finite(p1)
-      mu2 <- sum.finite(p2 * x) / sum.finite(p2)
-      mu3 <- sum.finite(p3 * x) / sum.finite(p3)
-      
-      sigma1 <- sqrt(sum.finite(p1 * (x-mu1)^2) / sum.finite(p1))
-      sigma2 <- sqrt(sum.finite(p2 * (x-mu2)^2) / sum.finite(p2))
-      sigma3 <- sqrt(sum.finite(p3 * (x-mu3)^2) / sum.finite(p3))
-      
-      p1 <- pi1 
-      p2 <- pi2
-      p3 <- pi3
-      
-      k <- k + 1
-      Q[k] <- sum(log(comp.sum))
-    }
-    p<-c(p1,p2,p3)
-    p<-sort(p, decreasing = TRUE)
-    mu<-c(mu1,mu2,mu3)
-    mu<-sort(mu, decreasing = TRUE)
-    sg<-c(sigma1,sigma2,sigma3)
-    sg<-sort(sg, decreasing = TRUE)
-    gm<-normalmixEM(x,k=3,lambda=c(round(p[1],2),round(p[2],2),round(p[3],3)),mu=c(round(mu[1],2),round(mu[2],2),round(mu[3],2)),sigma=c(round(sg[1],2),round(sg[2],2),round(sg[3],2)))
-    
-    hist(x, prob=T, breaks=32, xlim=c(range(x)[1], range(x)[2]), main='')
-    lines(density(x), col="green", lwd=2)
-    x1 <- seq(from=range(x)[1], to=range(x)[2], length.out=1000)
-    y <- pi1 * dnorm(x1, mean=mu1, sd=sigma1) + pi2 * dnorm(x1, mean=mu2, sd=sigma2) + pi3 * dnorm(x1, mean=mu3, sd=sigma3)
-    lines(x1, y, col="red", lwd=2)
-    legend('topright', col=c("green", 'red'), lwd=2, legend=c("kernal", "fitted"))
-    print(gm$mu)
-    question<-(readline("Choose a number which lies on x-axis closest to the rightmost peak that will mark untagged cells (1,2 or 3)"))
-    question<-as.numeric(question)
-    if(question==1){
-      threshold_delta<-round(gm$mu[1]+2*gm$sigma[1], 2)
-      return(threshold_delta)
-    }
-    else if(question==2){
-      threshold_delta<-round(gm$mu[2]+2*gm$sigma[2], 2)
-      return(threshold_delta)
-    }
-    else if (question==3){
-      threshold_delta<-round(gm$mu[3]+2*gm$sigma[3], 2)
-      return(threshold_delta)
-    }
-    else{
-      stop("Please choose a number from 1 to 3")
-    }
-  }
-  else if (number_of_peaks == 4){
-    x<-scAD$Postnorm_delta
-    mem <- kmeans(x,4)$cluster
-    mu1 <- mean(x[mem==1])
-    mu2 <- mean(x[mem==2])
-    mu3 <- mean(x[mem==3])
-    mu4 <- mean(x[mem==4])
-    sigma1 <- sd(x[mem==1])
-    sigma2 <- sd(x[mem==2])
-    sigma3 <- sd(x[mem==3])
-    sigma4 <- sd(x[mem==4])
-    pi1 <- sum(mem==1)/length(mem)
-    pi2 <- sum(mem==2)/length(mem)
-    pi3 <- sum(mem==3)/length(mem)
-    pi4 <- sum(mem==4)/length(mem)
-    
-    sum.finite <- function(x) {
-      sum(x[is.finite(x)])
-    }
-    
-    Q <- 0
-    # starting value of expected value of the log likelihood
-    Q[2] <- sum.finite(log(pi1)+log(dnorm(x, mu1, sigma1))) + sum.finite(log(pi2)+log(dnorm(x, mu2, sigma2))) + sum.finite(log(pi3)+log(dnorm(x, mu3, sigma3))) + sum.finite(log(pi4)+log(dnorm(x, mu4, sigma4)))
-    
-    k <- 2
-    
-    while (abs(Q[k]-Q[k-1])>=1e-6) {
-      # E step
-      comp1 <- pi1 * dnorm(x, mu1, sigma1)
-      comp2 <- pi2 * dnorm(x, mu2, sigma2)
-      comp3 <- pi3 * dnorm(x, mu3, sigma3)
-      comp4 <- pi4 * dnorm(x, mu4, sigma4)
-      comp.sum <- comp1 + comp2 + comp3 + comp4
-      
-      p1 <- comp1/comp.sum
-      p2 <- comp2/comp.sum
-      p3 <- comp3/comp.sum
-      p4 <- comp4/comp.sum
-      
-      # M step
-      pi1 <- sum.finite(p1) / length(x)
-      pi2 <- sum.finite(p2) / length(x)
-      pi3 <- sum.finite(p3) / length(x)
-      pi4 <- sum.finite(p4) / length(x)
-      
-      mu1 <- sum.finite(p1 * x) / sum.finite(p1)
-      mu2 <- sum.finite(p2 * x) / sum.finite(p2)
-      mu3 <- sum.finite(p3 * x) / sum.finite(p3)
-      mu4 <- sum.finite(p4 * x) / sum.finite(p4)
-      
-      sigma1 <- sqrt(sum.finite(p1 * (x-mu1)^2) / sum.finite(p1))
-      sigma2 <- sqrt(sum.finite(p2 * (x-mu2)^2) / sum.finite(p2))
-      sigma3 <- sqrt(sum.finite(p3 * (x-mu3)^2) / sum.finite(p3))
-      sigma4 <- sqrt(sum.finite(p4 * (x-mu4)^2) / sum.finite(p4))
-      
-      p1 <- pi1 
-      p2 <- pi2
-      p3 <- pi3
-      p4 <- pi4
-      
-      k <- k + 1
-      Q[k] <- sum(log(comp.sum))
-    }
-    p<-c(p1,p2,p3, p4)
-    p<-sort(p, decreasing = TRUE)
-    mu<-c(mu1,mu2,mu3, mu4)
-    mu<-sort(mu, decreasing = TRUE)
-    sg<-c(sigma1,sigma2,sigma3, sigma4)
-    sg<-sort(sg, decreasing = TRUE)
-    gm<-normalmixEM(x,k=3,lambda=c(round(p[1],2),round(p[2],2),round(p[3],3), round(p[4],2)),mu=c(round(mu[1],2),round(mu[2],2),round(mu[3],2), round(mu[4],2)),sigma=c(round(sg[1],2),round(sg[2],2),round(sg[3],2), round(sg[4],2)))
-    
-    hist(x, prob=T, breaks=32, xlim=c(range(x)[1], range(x)[2]), main='')
-    lines(density(x), col="green", lwd=2)
-    x1 <- seq(from=range(x)[1], to=range(x)[2], length.out=1000)
-    y <- pi1 * dnorm(x1, mean=mu1, sd=sigma1) + pi2 * dnorm(x1, mean=mu2, sd=sigma2) + pi3 * dnorm(x1, mean=mu3, sd=sigma3) + pi4 * dnorm(x1, mean=mu4, sd=sigma4)
-    lines(x1, y, col="red", lwd=2)
-    legend('topright', col=c("green", 'red'), lwd=2, legend=c("kernal", "fitted"))
-    print(gm$mu)
-    question<-(readline("Choose a number which lies on x-axis closest to the rightmost peak that will mark untagged cells (1,2 or 3)"))
-    question<-as.numeric(question)
-    if(question==1){
-      threshold_delta<-round(gm$mu[1]+2*gm$sigma[1], 2)
-      return(threshold_delta)
-    }
-    else if(question==2){
-      threshold_delta<-round(gm$mu[2]+2*gm$sigma[2], 2)
-      return(threshold_delta)
-    }
-    else if (question==3){
-      threshold_delta<-round(gm$mu[3]+2*gm$sigma[3], 2)
-      return(threshold_delta)
-    }
-    else if (question==4){
-      threshold_delta<-round(gm$mu[4]+2*gm$sigma[4], 2)
-      return(threshold_delta)
-    }
-    else{
-      stop("Please choose a number from 1 to 4")
-    }
-  }
-  else{
-    stop("For bimodal distribution use DeltaThreshold; otherwise the dataset is too noisy to select a confident threshold")
-  }
-}
-
-FinalTagging<-function(scAD,threshold_ratio=0.5){
+FinalTagging<-function(seurat_obj,threshold_ratio=0.5){
   if(threshold_ratio > 0.1 & threshold_ratio <= 1){
-    final_tags<-scAD$Putative_tags
-    future_undetermined<-WhichCells(scAD, expression = Ratio < threshold_ratio)
+    final_tags<-seurat_obj$Putative_tags
+    future_undetermined<-WhichCells(seurat_obj, expression = Ratio < threshold_ratio)
     for(i in future_undetermined){
       final_tags[i]<-'Undetermined'
     }
-    scAD[['Final_tags']]<-final_tags
-    return(scAD)
+    seurat_obj[['Final_tags']]<-final_tags
+    return(seurat_obj)
   }
   else if (threshold_ratio <= 0.1){
     stop("Please choose a number between 0.1 (exclusively) and 1")
@@ -727,42 +177,6 @@ FinalTagging<-function(scAD,threshold_ratio=0.5){
   else{
     stop("Please choose a number lower or equal to 1")
   }
-}
-
-WhyUntagged<-function(scAD, threshold_first_best, threshold_delta){
-  undet_seurat<-subset(scAD, subset=Final_tags=='Undetermined')
-  flags_for_undet<-c()
-  for(i in 1:length(undet_seurat$Postnorm_first_best)){
-    if(undet_seurat$Postnorm_first_best[i] < threshold_first_best & undet_seurat$Postnorm_delta[i] < threshold_delta){
-      flags_for_undet<-c(flags_for_undet, 'Both failed')
-    }
-    else if (undet_seurat$Postnorm_first_best[i] < threshold_first_best & undet_seurat$Postnorm_delta[i] >= threshold_delta){
-      flags_for_undet<-c(flags_for_undet, 'First best failed')
-    }
-    else{
-      flags_for_undet<-c(flags_for_undet, 'Delta failed')
-    }
-  }
-  undet_seurat[['Flags']]<-flags_for_undet
-  df_undet<-data.frame('First_best'=undet_seurat$Postnorm_first_best, 'Delta'=undet_seurat$Postnorm_delta, 'Final-tags'=undet_seurat$Final_tags, 'Flags'=undet_seurat$Flags)
-  question<-readline("How do you want to name the csv file with the untagged cells? (Don't forget to put .csv in the end)")
-  question<-as.character(question)
-  write.csv(df_undet, file=question)
-  nums<-c()
-  for(i in 1:length(df_undet$Flags)){
-    if(df_undet$Flags[i]=='Both failed'){
-      nums<-c(nums, length(which(df_undet$Flags=='Both failed')))
-    }
-    else if(df_undet$Flags[i]=='First best failed'){
-      nums<-c(nums, length(which(df_undet$Flags=='First best failed')))
-    }
-    else{
-      nums<-c(nums, length(which(df_undet$Flags=='Delta failed')))
-    }
-  }
-  df_undet$Nums<-nums
-  df_undet$Label = paste(df_undet$Flags," (", df_undet$Nums,")", sep = "")
-  return(df_undet)
 }
 
 
