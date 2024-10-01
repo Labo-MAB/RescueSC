@@ -80,12 +80,12 @@ FilterLowSeqDepth takes only two parameters as input:
 So if the distribution is bimodal and the local minimum between peaks falls around 0.5, you should go with the default value of the "distribution" parameter.
 If the distribution is normal, the function uses 95% confidence interval (CI) for filtering, and in case of bimodal distribution it implement expectation-maximization (EM) algorithm for identifying 2 separate peaks in the distribution (as a reference for implementing the EM algorithm [this webpage](https://rpubs.com/H_Zhu/246450)  was taken). 
 
-After filtering First Best and Delta are normalized to the sample tag sequencing depth for bringing them to 0-1 scale.
+After filtering First Best and Delta are normalized to the sample tag sequencing depth for bringing them to 0-1 scale. Also, the Ratio parameter is calculated.
 ```
 seurat_obj <- FilterLowSeqDepth(seurat_obj, distribution) # for the distribution write either "normal" or "bimodal"
 seurat_obj <- NormTagQCParams(seurat_obj)
 ```
-Now the Ratio parameter can be calculated, a threshold for tagging can be set and the tags can be assigned to cells. For this, the user needs to run the FinalTagging function, which takes the Seurat object and the Ratio threshold as an input. The default value is 0.5, meaning that we require that the difference between Best and Second Best is at least half of the Best. The user can set up custom thresholds as well. NB! The custom threshold cannot be equal to or lower than 0.1!
+Now a threshold for tagging can be set and the tags can be assigned to cells. For this, the user needs to run the FinalTagging function, which takes the Seurat object and the Ratio threshold as an input. The default value is 0.5, meaning that we require that the difference between Best and Second Best is at least half of the Best. The user can set up custom thresholds as well. NB! The custom threshold cannot be equal to or lower than 0.1!
 
 ```
 seurat_obj<-FinalTagging(seurat_obj, threshold_ratio) # for the thresholds insert the variables which you obtained in the previous step
