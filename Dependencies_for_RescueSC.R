@@ -12,6 +12,7 @@
 # RColorBrewer version 1.1-3
 # SingleCellExperiment version 1.22.0
 # pheatmap version 1.0.12
+# shinythemes version 1.2.0
 # scMCA version 0.2.0
 # DoubletDecon version 1.1.6
 # tidyverse version 2.0.0
