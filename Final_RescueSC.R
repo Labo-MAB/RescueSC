@@ -195,7 +195,7 @@ RefinedDimPlot<-function(unfiltered_seurat, percent.mt_threshold){
     l[[i+1]]<-x
   }
   l<-setNames(l, alphabet[1:(length(levels(unfiltered_seurat$seurat_clusters)))])
-  DimPlot(unfiltered_seurat, reduction = "umap",label=T, cells.highlight = l, cols.highlight = hue_pal()(length(levels(unfiltered_seurat$seurat_clusters))), cols= 'grey')+NoLegend()
+  DimPlot(unfiltered_seurat, reduction = "umap",label=T, cells.highlight = l, cols.highlight = hue_pal()(length(levels(unfiltered_seurat$seurat_clusters))), cols= 'grey', group.by = "cell.ID", repel=TRUE)+NoLegend()+ggtitle(NULL)
   
 }
 
