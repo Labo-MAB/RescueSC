@@ -186,7 +186,7 @@ FinalTagging<-function(seurat_obj,threshold_ratio=0.5){
 ##                                                 ##
 #####################################################
 
-RefinedDimPlot<-function(unfiltered_seurat, percent.mt_threshold){
+RefinedDimPlot<-function(unfiltered_seurat, percent.mt_threshold, group.by, ggtitle=NULL){
   x<-WhichCells(unfiltered_seurat, expression = seurat_clusters == as.character(0) & percent.mt <= percent.mt_threshold)
   l<-list(x)
   alphabet<-c(rev(LETTERS),rev(letters))
@@ -195,7 +195,7 @@ RefinedDimPlot<-function(unfiltered_seurat, percent.mt_threshold){
     l[[i+1]]<-x
   }
   l<-setNames(l, alphabet[1:(length(levels(unfiltered_seurat$seurat_clusters)))])
-  DimPlot(unfiltered_seurat, reduction = "umap",label=T, cells.highlight = l, cols.highlight = hue_pal()(length(levels(unfiltered_seurat$seurat_clusters))), cols= 'grey', group.by = "cell.ID", repel=TRUE)+NoLegend()+ggtitle(NULL)
+  DimPlot(unfiltered_seurat, reduction = "umap",label=T, cells.highlight = l, cols.highlight = hue_pal()(length(levels(unfiltered_seurat$seurat_clusters))), cols= 'grey', group.by = group.by, repel=TRUE)+NoLegend()+ggtitle(ggtitle)
   
 }
 
