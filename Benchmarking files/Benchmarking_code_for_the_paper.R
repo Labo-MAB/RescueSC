@@ -1059,6 +1059,7 @@ Main_dataset <- RunHarmony(Main_dataset, group.by.vars = c("Final_tags"), reduct
 Main_dataset <- RunUMAP(Main_dataset, reduction = "harmony", assay = "SCT", dims = 1:6) 
 Main_dataset <- FindNeighbors(object = Main_dataset, reduction = "harmony", dims = 1:6) 
 Main_dataset <- FindClusters(Main_dataset, resolution = 0.5)
+Main_dataset<-FuzzyClusters(Main_dataset, 22, 0.7)
 
 RefinedDimPlot(Main_dataset, 30)
 VlnPlot(Main_dataset, features = 'percent.mt', group.by = 'seurat_clusters') # displays MGPC distribution in every cluster
