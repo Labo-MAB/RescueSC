@@ -117,7 +117,7 @@ ElbowPlot(merged_seurat)
 unfiltered_seurat <- RunHarmony(merged_seurat, group.by.vars = c("Final_tags"), reduction = "pca", assay.use = "SCT", reduction.save = "harmony", dims.use=1:n) # instead of n insert a number of PCs to use for clustering based on ElbowPlot
 unfiltered_seurat <- RunUMAP(unfiltered_seurat, reduction = "harmony", assay = "SCT", dims = 1:n) 
 unfiltered_seurat <- FindNeighbors(object = unfiltered_seurat, reduction = "harmony", dims = 1:n) 
-unfiltered_seurat <- FindClusters(unfiltered_seurat, resolution = 0.5) # you can change the resolution parameter; the bigger the resolution - the more clusters you will obtain
+unfiltered_seurat <- FindClusters(unfiltered_seurat, resolution = 0.5) # you can change the resolution parameter; the bigger the resolution - the more clusters you will obtain 
 ```
 After these procedures you will obtain a Seurat object with clustering information inside it. Now, you can visualize the results of clustering, coloring cells with high MGPC in grey. 
 
@@ -130,6 +130,10 @@ You can as well get some information about quality of every cluster by displayin
 VlnPlot(unfiltered_seurat, features = 'percent.mt', group.by = 'seurat_clusters') # displays MGPC distribution in every cluster
 VlnPlot(unfiltered_seurat, features = 'nFeature_RNA', group.by = 'seurat_clusters') # displays number of genes per cell distribution in every cluster
 ClusterQC(unfiltered_seurat, "seurat_clusters") # displays the same information in a scatter plot manner
+```
+After you found the low quality clusters, you can perform fuzzy clustering and remove cells which fall below the membership value threshold for every cluster.
+```
+unfiltered_seurat <- FuzzyClusters(unfiltered_seurat, n, m) # n is the number of clusters which you expect to obtain after fuzzy clustering; m is the threshold for membership values (we recommend using 0.7)
 ```
 ### AutoClusterType
 After clustering cell type annotation must be performed. We use [scMCA](https://github.com/ggjlab/scMCA) mouse cell atlas for this purpose. 
