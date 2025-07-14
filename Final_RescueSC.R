@@ -308,6 +308,18 @@ ClusterQC<-function(unfiltered_seurat, cluster_feature){
     stop("Please use either seurat_clusters or cell.ID as cluster features.")
   }
 }
+FuzzyClusters<-function(seurat_object,number_of_clusters, membership_threshold){
+  your_table<-seurat_object@reductions$umap@cell.embeddings
+  cm <- cmeans(your_table, number_of_clusters)
+  cells_to_remove<-c()
+  for(i in 1:length(cm$membership[,1])){
+    if(max(cm$membership[i,])<membership_threshold){
+      cells_to_remove<-c(cells_to_remove, rownames(cm$membership)[i])
+    }
+  }
+  new_seurat<-subset(seurat_object, cells=cells_to_remove, invert=TRUE)
+  return(new_seurat)
+}
 ####################################################################################
 ##                                                                                ## 
 ##  AutoClusterType: automated annotation by top 3 best annotations in a cluster! ##
