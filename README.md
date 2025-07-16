@@ -31,6 +31,7 @@ library(scales)
 library(ggridges)
 library(mixtools)
 library(lessR)
+library(e1071)
 ```
 ## Tutorial
 First of all, you need to download the "Final_RescueSC.R" file and load all the functions from it:
