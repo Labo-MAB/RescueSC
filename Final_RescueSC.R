@@ -322,11 +322,11 @@ FuzzyClusters<-function(seurat_object,number_of_clusters, membership_threshold){
 }
 ####################################################################################
 ##                                                                                ## 
-##  AutoClusterType: automated annotation by top 3 best annotations in a cluster! ##
+##  AutoClusterName: automated annotation by top 3 best annotations in a cluster! ##
 ##                                                                                ##
 ####################################################################################
 
-AutoClusterType<-function(reference_file_path, mca_result, unfiltered_seurat){
+AutoClusterName<-function(reference_file_path, mca_result, unfiltered_seurat){
   references<-read.csv(reference_file_path, header = TRUE)
   x<-as.data.frame(mca_result$scMCA_probility)
   for (i in 0:(length(levels(unfiltered_seurat$seurat_clusters))-1)){
@@ -492,3 +492,4 @@ AutoClusterType<-function(reference_file_path, mca_result, unfiltered_seurat){
   unfiltered_seurat[["cell.ID"]] <- Idents(unfiltered_seurat)
   return(unfiltered_seurat)
 }
+
