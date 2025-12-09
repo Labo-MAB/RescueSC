@@ -62,13 +62,13 @@ PreQCFilter<-function(seurat_obj){
 
 FilterLowSeqDepth<-function(seurat_obj, distribution="default"){
   if (distribution == "default"){
-    seurat_obj<-subset(seurat_obj, subset=NTD_first_best<0.5)
+    seurat_obj<-subset(seurat_obj, subset=NTD_first_best<=0.5)
     return(seurat_obj)
   }
   else if (distribution == "normal"){
     x<-seurat_obj$NTD_first_best
     threshold_for_NTD<-round(mean(x)+2*sd(x),2)
-    seurat_obj<-subset(seurat_obj, subset=NTD_first_best<threshold_for_NTD)
+    seurat_obj<-subset(seurat_obj, subset=NTD_first_best<=threshold_for_NTD)
     return(seurat_obj)
   }
   else if (distribution == "bimodal"){
@@ -134,14 +134,161 @@ FilterLowSeqDepth<-function(seurat_obj, distribution="default"){
     question<-as.numeric(question)
     if(question==1){
       threshold_for_NTD<-round(gm$mu[1]-2*gm$sigma[1], 2)
-      seurat_obj<-subset(seurat_obj, subset=NTD_first_best<threshold_for_NTD)
+      seurat_obj<-subset(seurat_obj, subset=NTD_first_best<=threshold_for_NTD)
       return(seurat_obj)
     }
     else if(question==2){
       threshold_for_NTD<-round(gm$mu[2]-2*gm$sigma[2], 2)
-      seurat_obj<-subset(seurat_obj, subset=NTD_first_best<threshold_for_NTD)
+      seurat_obj<-subset(seurat_obj, subset=NTD_first_best<=threshold_for_NTD)
       return(seurat_obj)
     }
+  }
+  else if (distribution == "trimodal"){
+    x<-seurat_obj$NTD_first_best
+    mem <- kmeans(x,3)$cluster
+    mu1 <- mean(x[mem==1])
+    mu2 <- mean(x[mem==2])
+    mu3 <- mean(x[mem==3])
+    sigma1 <- sd(x[mem==1])
+    sigma2 <- sd(x[mem==2])
+    sigma3 <- sd(x[mem==3])
+    pi1 <- sum(mem==1)/length(mem)
+    pi2 <- sum(mem==2)/length(mem)
+    pi3 <- sum(mem==3)/length(mem)
+    
+    sum.finite <- function(x) {
+      sum(x[is.finite(x)])
+    }
+    
+    Q <- 0
+    # starting value of expected value of the log likelihood
+    Q[2] <- sum.finite(log(pi1)+log(dnorm(x, mu1, sigma1))) + sum.finite(log(pi2)+log(dnorm(x, mu2, sigma2))) + sum.finite(log(pi3)+log(dnorm(x, mu3, sigma3)))
+    
+    k <- 2
+    
+    while (abs(Q[k]-Q[k-1])>=1e-6) {
+      # E step
+      comp1 <- pi1 * dnorm(x, mu1, sigma1)
+      comp2 <- pi2 * dnorm(x, mu2, sigma2)
+      comp3 <- pi3 * dnorm(x, mu3, sigma3)
+      comp.sum <- comp1 + comp2 + comp3
+      
+      p1 <- comp1/comp.sum
+      p2 <- comp2/comp.sum
+      p3 <- comp3/comp.sum
+      
+      # M step
+      pi1 <- sum.finite(p1) / length(x)
+      pi2 <- sum.finite(p2) / length(x)
+      pi3 <- sum.finite(p3) / length(x)
+      
+      mu1 <- sum.finite(p1 * x) / sum.finite(p1)
+      mu2 <- sum.finite(p2 * x) / sum.finite(p2)
+      mu3 <- sum.finite(p3 * x) / sum.finite(p3)
+      
+      sigma1 <- sqrt(sum.finite(p1 * (x-mu1)^2) / sum.finite(p1))
+      sigma2 <- sqrt(sum.finite(p2 * (x-mu2)^2) / sum.finite(p2))
+      sigma3 <- sqrt(sum.finite(p3 * (x-mu3)^2) / sum.finite(p3))
+      
+      p1 <- pi1 
+      p2 <- pi2
+      p3 <- pi3
+      
+      k <- k + 1
+      Q[k] <- sum(log(comp.sum))
+    }
+    
+    gm<-normalmixEM(x,k=3,lambda=c(round(p[1],2),round(p[2],2), round(p[3],2)),mu=c(round(mu[1],2),round(mu[2],2),round(mu[3],2)),sigma=c(round(sg[1],2),round(sg[2],2),round(sg[3],2)))
+    hist(x, prob=T, breaks=32, xlim=c(range(x)[1], range(x)[2]), main='')
+    lines(density(x), col="green", lwd=2)
+    x1 <- seq(from=range(x)[1], to=range(x)[2], length.out=1000)
+    y <- pi1 * dnorm(x1, mean=mu1, sd=sigma1) + pi2 * dnorm(x1, mean=mu2, sd=sigma2) + pi3 * dnorm(x1, mean=mu3, sd=sigma3)
+    lines(x1, y, col="red", lwd=2)
+    legend('topright', col=c("green", 'red'), lwd=2, legend=c("kernal", "fitted"))
+    print(gm$mu)
+    question<-(readline("Which of the above numbers is the biggest (1,2 or 3)?"))
+    question<-as.numeric(question)
+    threshold_for_NTD<-round(gm$mu[question]-2*gm$sigma[question], 2)
+    seurat_obj<-subset(seurat_obj, subset=NTD_first_best<=threshold_for_NTD)
+    return(seurat_obj)
+  }
+  else if(distribution=="quadrimodal"){
+    x<-seurat_obj$NTD_first_best
+    mem <- kmeans(x,4)$cluster
+    mu1 <- mean(x[mem==1])
+    mu2 <- mean(x[mem==2])
+    mu3 <- mean(x[mem==3])
+    mu4 <- mean(x[mem==4])
+    sigma1 <- sd(x[mem==1])
+    sigma2 <- sd(x[mem==2])
+    sigma3 <- sd(x[mem==3])
+    sigma4 <- sd(x[mem==4])
+    pi1 <- sum(mem==1)/length(mem)
+    pi2 <- sum(mem==2)/length(mem)
+    pi3 <- sum(mem==3)/length(mem)
+    pi4 <- sum(mem==4)/length(mem)
+    
+    sum.finite <- function(x) {
+      sum(x[is.finite(x)])
+    }
+    
+    Q <- 0
+    # starting value of expected value of the log likelihood
+    Q[2] <- sum.finite(log(pi1)+log(dnorm(x, mu1, sigma1))) + sum.finite(log(pi2)+log(dnorm(x, mu2, sigma2))) + sum.finite(log(pi3)+log(dnorm(x, mu3, sigma3))) + sum.finite(log(pi4)+log(dnorm(x, mu4, sigma4)))
+    
+    k <- 2
+    
+    while (abs(Q[k]-Q[k-1])>=1e-6) {
+      # E step
+      comp1 <- pi1 * dnorm(x, mu1, sigma1)
+      comp2 <- pi2 * dnorm(x, mu2, sigma2)
+      comp3 <- pi3 * dnorm(x, mu3, sigma3)
+      comp4 <- pi4 * dnorm(x, mu4, sigma4)
+      comp.sum <- comp1 + comp2 + comp3 + comp4
+      
+      p1 <- comp1/comp.sum
+      p2 <- comp2/comp.sum
+      p3 <- comp3/comp.sum
+      p4 <- comp4/comp.sum
+      
+      # M step
+      pi1 <- sum.finite(p1) / length(x)
+      pi2 <- sum.finite(p2) / length(x)
+      pi3 <- sum.finite(p3) / length(x)
+      pi4 <- sum.finite(p4) / length(x)
+      
+      mu1 <- sum.finite(p1 * x) / sum.finite(p1)
+      mu2 <- sum.finite(p2 * x) / sum.finite(p2)
+      mu3 <- sum.finite(p3 * x) / sum.finite(p3)
+      mu4 <- sum.finite(p4 * x) / sum.finite(p4)
+      
+      sigma1 <- sqrt(sum.finite(p1 * (x-mu1)^2) / sum.finite(p1))
+      sigma2 <- sqrt(sum.finite(p2 * (x-mu2)^2) / sum.finite(p2))
+      sigma3 <- sqrt(sum.finite(p3 * (x-mu3)^2) / sum.finite(p3))
+      sigma4 <- sqrt(sum.finite(p4 * (x-mu4)^2) / sum.finite(p4))
+      
+      p1 <- pi1 
+      p2 <- pi2
+      p3 <- pi3
+      p4 <- pi4
+      
+      k <- k + 1
+      Q[k] <- sum(log(comp.sum))
+    }
+    
+    gm<-normalmixEM(x,k=4,lambda=c(round(p[1],2),round(p[2],2), round(p[3],2),round(p[4],2)),mu=c(round(mu[1],2),round(mu[2],2),round(mu[3],2),round(mu[4],2)),sigma=c(round(sg[1],2),round(sg[2],2),round(sg[3],2),round(sg[4],2)))
+    hist(x, prob=T, breaks=32, xlim=c(range(x)[1], range(x)[2]), main='')
+    lines(density(x), col="green", lwd=2)
+    x1 <- seq(from=range(x)[1], to=range(x)[2], length.out=1000)
+    y <- pi1 * dnorm(x1, mean=mu1, sd=sigma1) + pi2 * dnorm(x1, mean=mu2, sd=sigma2) + pi3 * dnorm(x1, mean=mu3, sd=sigma3) + pi4 * dnorm(x1, mean=mu4, sd=sigma4)
+    lines(x1, y, col="red", lwd=2)
+    legend('topright', col=c("green", 'red'), lwd=2, legend=c("kernal", "fitted"))
+    print(gm$mu)
+    question<-(readline("Which of the above numbers is the biggest (1,2,3 or 4)?"))
+    question<-as.numeric(question)
+    threshold_for_NTD<-round(gm$mu[question]-2*gm$sigma[question], 2)
+    seurat_obj<-subset(seurat_obj, subset=NTD_first_best<=threshold_for_NTD)
+    return(seurat_obj)
   }
 }
 
@@ -492,4 +639,5 @@ AutoClusterName<-function(reference_file_path, mca_result, unfiltered_seurat){
   unfiltered_seurat[["cell.ID"]] <- Idents(unfiltered_seurat)
   return(unfiltered_seurat)
 }
+
 
